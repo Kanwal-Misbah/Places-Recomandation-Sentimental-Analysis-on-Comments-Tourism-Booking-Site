@@ -1,0 +1,126 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+@{
+    Layout = "~/Views/Shared/_LayoutVisiter.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tour & Travel</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link href="css/element.css" rel="stylesheet">
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        .contact-info {
+            margin-top: 30px;
+        }
+
+            .contact-info p {
+                display: inline-block;
+                margin-right: 20px;
+            }
+
+            .contact-info i {
+                margin-right: 5px;
+            }
+    </style>
+</head>
+<body>
+
+  
+
+    <section id="contact_us">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="contact_us">
+                       
+                            <div class="container">
+                                <h1>Contact Us</h1>
+                                <p>Thank you for your interest in our company. For any inquiries, please use the contact information below:</p>
+
+                                <div class="contact-info">
+                                    <p><i class="fa fa-envelope"></i> Email: leadtotravel248@gmail.com</p>
+                                    <br />
+                                    <br />
+                                    <p><i class="fa fa-phone"></i> Phone: +92 3096735987</p>
+                                    <br />
+                                    <br />
+                                    <p><i class="fa fa-map-marker"></i> Address: Company Name 34, Gujranwala Cantt</p>
+                                </div>
+                            </div>
+                      
+
+                       
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer_page_2">
+        <div class="container">
+            <div class="row">
+                <div class="footer_page_2 clearfix">
+                    <div class="col-sm-3">
+                        <div class="footer_page_2_inner">
+                            <h4>Social Network</h4>
+                            <ul class="social-network social-circle">
+                                <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                            <h5><a href="index.html"><i class="fa fa-tree"></i>Tour &amp; TRAVEL </a></h5>
+                           
+                        </div>
+                    </div>
+                   
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <div id="toTop" class="btn btn-info" style="display: block; background:none; color:#999; border-color:#999;"><span class="fa fa-chevron-up"></span></div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('body').append('<div id="toTop" class="btn btn-info"><span class="glyphicon glyphicon-chevron-up"></span> Back to Top</div>');
+            $(window).scroll(function () {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function () {
+                $("html, body").animate({ scrollTop: 0 }, 600);
+                return false;
+            });
+        });
+
+    </script>
+
+
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Fin.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutBusinessUser.cshtml";
+    Fin.Models.Business_User loginBusinessUser = null;
+    if (Session["LoginBusinessUser"] != null)
+    {
+        loginBusinessUser = (Fin.Models.Business_User)Session["LoginBusinessUser"];
+    }
+}
+
+
+<p>
+
+    <a href="@Url.Action("Create","Categories")"><button style="margin-left: 50px; margin-top:50px" class="btn btn-sm btn-outline-primary">Add New Category</button></a>
+</p>
+<table border="1"
+       class="table">
+    <tr>
+        <th>
+            Category Name
+        </th>
+        <th>
+            Category Description
+        </th>
+        <th>
+            Category Image
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cat_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cat_description)
+            </td>
+            <td>
+
+                <img style="width:50% ; height: 50%" src=" @Url.Content(item.Cat_Image)" />
+            </td>
+            <td>
+                <a href="@Url.Action("Edit","Categories", new { id = item.Category_ID })"> <i style="color:green" class="bx bx-edit"></i></a>
+                <a href="@Url.Action("Details","Categories", new { id = item.Category_ID })"> <i style="color:blue" class="bx bx-detail"></i></a>
+                <a href="@Url.Action("Delete","Categories", new { id = item.Category_ID })"> <i style="color:red" class="bx bx-trash"></i></a>
+
+
+            </td>
+        </tr>
+    }
+
+</table>

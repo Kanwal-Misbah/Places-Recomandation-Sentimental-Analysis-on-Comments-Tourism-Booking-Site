@@ -1,0 +1,154 @@
+﻿@model Fin.Models.PACKAGE
+@{
+    // int total=50;
+    ViewBag.Title = "Booking";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutVisiter.cshtml";
+    var loginUser = (Fin.Models.User)Session["LoginUser"];
+   
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Tour Page</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .booking-form {
+            max-width: 700px; /* Increased the max-width value */
+            width: 100%;
+            padding: 40px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 200px;
+        }
+
+            .booking-form h1 {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .booking-form label {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .booking-form input[type="text"],
+            .booking-form input[type="tel"],
+            .booking-form input[type="date"],
+            .booking-form select {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            .booking-form input[type="submit"] {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+                .booking-form input[type="submit"]:hover {
+                    background-color: #45a049;
+                }
+    </style>
+    
+</head>
+<body>
+    <div class="booking-form">
+        <h1>Booking Tour Page</h1>
+
+
+        <form action="/Home/SaveBooking" method="post">
+
+            <label for="packageName">@Model.Package_title</label>
+            <
+
+            <label for="name">Name</label>
+
+            <input type="text" id="packageName" name="packageName" value="@loginUser.User_Name" required>
+
+            <label for="name">Email</label>
+            <input type="text" id="email" name="email" value="@loginUser.Email" required>
+
+            <label for="address">Address (Departure):</label>
+            <input type="text" id="address" name="address" value="@Model.Departure_Address" required>
+
+            <label for="phone">Phone Number:</label>
+         
+            <input type="tel" pattern="^03\d{9}$" required title="Please enter a valid phone number starting with '03' and with a length of 11 digits.">
+
+            
+
+
+            <label for="startDate">Start Date:</label>
+            <input type="text" id="startDate" name="startDate" readonly value="@Model.Start_date" required>
+
+            <label for="endDate">End Date:</label>
+            <input type="text" id="endDate" name="endDate" readonly value="@Model.End_date" required>
+
+            <label for="totalPayment">Per head Payment:</label>
+
+            <input type="text" id="totalPayment" name="totalPayment" readonly value="@Model.Package_Price" required>
+
+            <label for="numberOfMembers">Total Number of Members:</label>
+            <input type="number" min="1" max="@Model.No_of_Members" id="numberOfMembers" name="numberOfMembers" required>
+            <input type="hidden" name="packageId" value="@Model.Package_id" required>
+
+
+            <input type="submit" value="Book Now">
+        </form>
+    </div>
+    <script>
+        function maskAndValidatePhoneNumber() {
+            var phoneNumberInput = document.getElementById("phoneNumber");
+            var phoneNumber = phoneNumberInput.value;
+
+            // Remove non-digit characters from the phone number
+            phoneNumber = phoneNumber.replace(/\D/g, '');
+
+            // Check if the remaining digits match the expected pattern
+            var regex = /^92(30|31|32)\d{7}$/;
+            if (regex.test(phoneNumber)) {
+                // Valid phone number
+                phoneNumberInput.value = maskPhoneNumber(phoneNumber);
+                phoneNumberInput.style.border = "1px solid green";
+            } else {
+                // Invalid phone number
+                phoneNumberInput.style.border = "1px solid red";
+            }
+        }
+
+        function maskPhoneNumber(phoneNumber) {
+            // Mask all but the last four digits of the phone number
+            var maskedNumber = phoneNumber.substr(0, phoneNumber.length - 4).replace(/\d/g, 'X');
+            maskedNumber += phoneNumber.substr(-4);
+            return maskedNumber;
+        }
+</body >
+
+</html >
+
+
+          

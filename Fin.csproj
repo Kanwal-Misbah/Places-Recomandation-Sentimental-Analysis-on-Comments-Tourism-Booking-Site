@@ -1,0 +1,1039 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3F1BCC14-CC05-49CD-A072-6FD21000F37C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fin</RootNamespace>
+    <AssemblyName>Fin</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44353</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ActivitiesAdminController.cs" />
+    <Compile Include="Controllers\ActivitiesController.cs" />
+    <Compile Include="Controllers\AdminsController.cs" />
+    <Compile Include="Controllers\BookingsController.cs" />
+    <Compile Include="Controllers\Business_UserAController.cs" />
+    <Compile Include="Controllers\Business_UserController.cs" />
+    <Compile Include="Controllers\CategoriesAdminController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\COMMENTsController.cs" />
+    <Compile Include="Controllers\DestinationsAdminController.cs" />
+    <Compile Include="Controllers\DestinationsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PACKAGEsAdminController.cs" />
+    <Compile Include="Controllers\PACKAGEsController.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
+    <Compile Include="Controllers\PlacesAdminController.cs" />
+    <Compile Include="Controllers\PlacesController.cs" />
+    <Compile Include="Controllers\UsersAController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\WishListsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ReportFilterModel.cs" />
+    <Compile Include="Models\Activity.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\Business_User.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\COMMENT.cs" />
+    <Compile Include="Models\Destination.cs" />
+    <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\PACKAGE.cs" />
+    <Compile Include="Models\PackCom.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\Place.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\WishList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Admin\assets\css\demo.css" />
+    <Content Include="Content\Admin\assets\img\avatars\1.png" />
+    <Content Include="Content\Admin\assets\img\avatars\5.png" />
+    <Content Include="Content\Admin\assets\img\avatars\6.png" />
+    <Content Include="Content\Admin\assets\img\avatars\7.png" />
+    <Content Include="Content\Admin\assets\img\avatars\Admin.jpg" />
+    <Content Include="Content\Admin\assets\img\avatars\Bus User.png" />
+    <Content Include="Content\Admin\assets\img\backgrounds\18.jpg" />
+    <Content Include="Content\Admin\assets\img\elements\1.jpg" />
+    <Content Include="Content\Admin\assets\img\elements\11.jpg" />
+    <Content Include="Content\Admin\assets\img\elements\12.jpg" />
+    <Content Include="Content\Admin\assets\img\elements\13.jpg" />
+    <Content Include="Content\Admin\assets\img\elements\17.jpg" />
+    <Content Include="Content\Admin\assets\img\elements\18.jpg" />
+    <Content Include="Content\Admin\assets\img\elements\19.jpg" />
+    <Content Include="Content\Admin\assets\img\elements\2.jpg" />
+    <Content Include="Content\Admin\assets\img\elements\20.jpg" />
+    <Content Include="Content\Admin\assets\img\elements\3.jpg" />
+    <Content Include="Content\Admin\assets\img\elements\4.jpg" />
+    <Content Include="Content\Admin\assets\img\elements\5.jpg" />
+    <Content Include="Content\Admin\assets\img\elements\7.jpg" />
+    <Content Include="Content\Admin\assets\img\favicon\favicon.ico" />
+    <Content Include="Content\Admin\assets\img\icons\brands\asana.png" />
+    <Content Include="Content\Admin\assets\img\icons\brands\behance.png" />
+    <Content Include="Content\Admin\assets\img\icons\brands\dribbble.png" />
+    <Content Include="Content\Admin\assets\img\icons\brands\facebook.png" />
+    <Content Include="Content\Admin\assets\img\icons\brands\github.png" />
+    <Content Include="Content\Admin\assets\img\icons\brands\google.png" />
+    <Content Include="Content\Admin\assets\img\icons\brands\instagram.png" />
+    <Content Include="Content\Admin\assets\img\icons\brands\mailchimp.png" />
+    <Content Include="Content\Admin\assets\img\icons\brands\slack.png" />
+    <Content Include="Content\Admin\assets\img\icons\brands\twitter.png" />
+    <Content Include="Content\Admin\assets\img\icons\unicons\cc-primary.png" />
+    <Content Include="Content\Admin\assets\img\icons\unicons\cc-success.png" />
+    <Content Include="Content\Admin\assets\img\icons\unicons\cc-warning.png" />
+    <Content Include="Content\Admin\assets\img\icons\unicons\chart-success.png" />
+    <Content Include="Content\Admin\assets\img\icons\unicons\chart.png" />
+    <Content Include="Content\Admin\assets\img\icons\unicons\paypal.png" />
+    <Content Include="Content\Admin\assets\img\icons\unicons\wallet-info.png" />
+    <Content Include="Content\Admin\assets\img\icons\unicons\wallet.png" />
+    <Content Include="Content\Admin\assets\img\illustrations\girl-doing-yoga-light.png" />
+    <Content Include="Content\Admin\assets\img\illustrations\man-with-laptop-light.png" />
+    <Content Include="Content\Admin\assets\img\illustrations\page-misc-error-light.png" />
+    <Content Include="Content\Admin\assets\img\layouts\layout-container-light.png" />
+    <Content Include="Content\Admin\assets\img\layouts\layout-fluid-light.png" />
+    <Content Include="Content\Admin\assets\img\layouts\layout-without-menu-light.png" />
+    <Content Include="Content\Admin\assets\img\layouts\layout-without-navbar-light.png" />
+    <Content Include="Content\Admin\assets\js\config.js" />
+    <Content Include="Content\Admin\assets\js\dashboards-analytics.js" />
+    <Content Include="Content\Admin\assets\js\extended-ui-perfect-scrollbar.js" />
+    <Content Include="Content\Admin\assets\js\form-basic-inputs.js" />
+    <Content Include="Content\Admin\assets\js\main.js" />
+    <Content Include="Content\Admin\assets\js\pages-account-settings-account.js" />
+    <Content Include="Content\Admin\assets\js\ui-modals.js" />
+    <Content Include="Content\Admin\assets\js\ui-popover.js" />
+    <Content Include="Content\Admin\assets\js\ui-toasts.js" />
+    <Content Include="Content\Admin\assets\vendor\css\core.css" />
+    <Content Include="Content\Admin\assets\vendor\css\pages\page-account-settings.css" />
+    <Content Include="Content\Admin\assets\vendor\css\pages\page-auth.css" />
+    <Content Include="Content\Admin\assets\vendor\css\pages\page-icons.css" />
+    <Content Include="Content\Admin\assets\vendor\css\pages\page-misc.css" />
+    <Content Include="Content\Admin\assets\vendor\css\theme-default.css" />
+    <Content Include="Content\Admin\assets\vendor\fonts\boxicons.css" />
+    <Content Include="Content\Admin\assets\vendor\fonts\boxicons\boxicons.svg" />
+    <Content Include="Content\Admin\assets\vendor\js\bootstrap.js" />
+    <Content Include="Content\Admin\assets\vendor\js\helpers.js" />
+    <Content Include="Content\Admin\assets\vendor\js\menu.js" />
+    <Content Include="Content\Admin\assets\vendor\libs\apex-charts\apex-charts.css" />
+    <Content Include="Content\Admin\assets\vendor\libs\apex-charts\apexcharts.js" />
+    <Content Include="Content\Admin\assets\vendor\libs\highlight\highlight-github.css" />
+    <Content Include="Content\Admin\assets\vendor\libs\highlight\highlight.css" />
+    <Content Include="Content\Admin\assets\vendor\libs\highlight\highlight.js" />
+    <Content Include="Content\Admin\assets\vendor\libs\jquery\jquery.js" />
+    <Content Include="Content\Admin\assets\vendor\libs\masonry\masonry.js" />
+    <Content Include="Content\Admin\assets\vendor\libs\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Content\Admin\assets\vendor\libs\perfect-scrollbar\perfect-scrollbar.js" />
+    <Content Include="Content\Admin\assets\vendor\libs\popper\popper.js" />
+    <Content Include="Content\Admin\dist\css\core.css" />
+    <Content Include="Content\Admin\dist\css\pages\page-account-settings.css" />
+    <Content Include="Content\Admin\dist\css\pages\page-auth.css" />
+    <Content Include="Content\Admin\dist\css\pages\page-icons.css" />
+    <Content Include="Content\Admin\dist\css\pages\page-misc.css" />
+    <Content Include="Content\Admin\dist\css\theme-default.css" />
+    <Content Include="Content\Admin\dist\fonts\boxicons.css" />
+    <Content Include="Content\Admin\dist\fonts\boxicons\boxicons.svg" />
+    <Content Include="Content\Admin\dist\js\bootstrap.js" />
+    <Content Include="Content\Admin\dist\js\helpers.js" />
+    <Content Include="Content\Admin\dist\js\menu.js" />
+    <Content Include="Content\Admin\dist\libs\apex-charts\apex-charts.css" />
+    <Content Include="Content\Admin\dist\libs\apex-charts\apexcharts.js" />
+    <Content Include="Content\Admin\dist\libs\highlight\highlight-github.css" />
+    <Content Include="Content\Admin\dist\libs\highlight\highlight.css" />
+    <Content Include="Content\Admin\dist\libs\highlight\highlight.js" />
+    <Content Include="Content\Admin\dist\libs\jquery\jquery.js" />
+    <Content Include="Content\Admin\dist\libs\masonry\masonry.js" />
+    <Content Include="Content\Admin\dist\libs\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Content\Admin\dist\libs\perfect-scrollbar\perfect-scrollbar.js" />
+    <Content Include="Content\Admin\dist\libs\popper\popper.js" />
+    <Content Include="Content\Admin\html\auth-forgot-password-basic.html" />
+    <Content Include="Content\Admin\html\auth-login-basic.html" />
+    <Content Include="Content\Admin\html\auth-register-basic.html" />
+    <Content Include="Content\Admin\html\cards-basic.html" />
+    <Content Include="Content\Admin\html\extended-ui-perfect-scrollbar.html" />
+    <Content Include="Content\Admin\html\extended-ui-text-divider.html" />
+    <Content Include="Content\Admin\html\form-layouts-horizontal.html" />
+    <Content Include="Content\Admin\html\form-layouts-vertical.html" />
+    <Content Include="Content\Admin\html\forms-basic-inputs.html" />
+    <Content Include="Content\Admin\html\forms-input-groups.html" />
+    <Content Include="Content\Admin\html\icons-boxicons.html" />
+    <Content Include="Content\Admin\html\index.html" />
+    <Content Include="Content\Admin\html\layouts-blank.html" />
+    <Content Include="Content\Admin\html\layouts-container.html" />
+    <Content Include="Content\Admin\html\layouts-fluid.html" />
+    <Content Include="Content\Admin\html\layouts-without-menu.html" />
+    <Content Include="Content\Admin\html\layouts-without-navbar.html" />
+    <Content Include="Content\Admin\html\pages-account-settings-account.html" />
+    <Content Include="Content\Admin\html\pages-account-settings-connections.html" />
+    <Content Include="Content\Admin\html\pages-account-settings-notifications.html" />
+    <Content Include="Content\Admin\html\pages-misc-error.html" />
+    <Content Include="Content\Admin\html\pages-misc-under-maintenance.html" />
+    <Content Include="Content\Admin\html\tables-basic.html" />
+    <Content Include="Content\Admin\html\ui-accordion.html" />
+    <Content Include="Content\Admin\html\ui-alerts.html" />
+    <Content Include="Content\Admin\html\ui-badges.html" />
+    <Content Include="Content\Admin\html\ui-buttons.html" />
+    <Content Include="Content\Admin\html\ui-carousel.html" />
+    <Content Include="Content\Admin\html\ui-collapse.html" />
+    <Content Include="Content\Admin\html\ui-dropdowns.html" />
+    <Content Include="Content\Admin\html\ui-footer.html" />
+    <Content Include="Content\Admin\html\ui-list-groups.html" />
+    <Content Include="Content\Admin\html\ui-modals.html" />
+    <Content Include="Content\Admin\html\ui-navbar.html" />
+    <Content Include="Content\Admin\html\ui-offcanvas.html" />
+    <Content Include="Content\Admin\html\ui-pagination-breadcrumbs.html" />
+    <Content Include="Content\Admin\html\ui-progress.html" />
+    <Content Include="Content\Admin\html\ui-spinners.html" />
+    <Content Include="Content\Admin\html\ui-tabs-pills.html" />
+    <Content Include="Content\Admin\html\ui-toasts.html" />
+    <Content Include="Content\Admin\html\ui-tooltips-popovers.html" />
+    <Content Include="Content\Admin\html\ui-typography.html" />
+    <Content Include="Content\Admin\js\bootstrap.js" />
+    <Content Include="Content\Admin\js\helpers.js" />
+    <Content Include="Content\Admin\js\menu.js" />
+    <Content Include="Content\Admin\libs\apex-charts\apexcharts.js" />
+    <Content Include="Content\Admin\libs\highlight\highlight.js" />
+    <Content Include="Content\Admin\libs\jquery\jquery.js" />
+    <Content Include="Content\Admin\libs\masonry\masonry.js" />
+    <Content Include="Content\Admin\libs\perfect-scrollbar\perfect-scrollbar.js" />
+    <Content Include="Content\Admin\libs\popper\popper.js" />
+    <Content Include="Content\Admin\tasks\build.js" />
+    <Content Include="Content\Admin\tasks\prod.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\BusinessUser\assets\css\demo.css" />
+    <Content Include="Content\BusinessUser\assets\img\avatars\1.png" />
+    <Content Include="Content\BusinessUser\assets\img\avatars\5.png" />
+    <Content Include="Content\BusinessUser\assets\img\avatars\6.png" />
+    <Content Include="Content\BusinessUser\assets\img\avatars\7.png" />
+    <Content Include="Content\BusinessUser\assets\img\backgrounds\18.jpg" />
+    <Content Include="Content\BusinessUser\assets\img\elements\1.jpg" />
+    <Content Include="Content\BusinessUser\assets\img\elements\11.jpg" />
+    <Content Include="Content\BusinessUser\assets\img\elements\12.jpg" />
+    <Content Include="Content\BusinessUser\assets\img\elements\13.jpg" />
+    <Content Include="Content\BusinessUser\assets\img\elements\17.jpg" />
+    <Content Include="Content\BusinessUser\assets\img\elements\18.jpg" />
+    <Content Include="Content\BusinessUser\assets\img\elements\19.jpg" />
+    <Content Include="Content\BusinessUser\assets\img\elements\2.jpg" />
+    <Content Include="Content\BusinessUser\assets\img\elements\20.jpg" />
+    <Content Include="Content\BusinessUser\assets\img\elements\3.jpg" />
+    <Content Include="Content\BusinessUser\assets\img\elements\4.jpg" />
+    <Content Include="Content\BusinessUser\assets\img\elements\5.jpg" />
+    <Content Include="Content\BusinessUser\assets\img\elements\7.jpg" />
+    <Content Include="Content\BusinessUser\assets\img\favicon\favicon.ico" />
+    <Content Include="Content\BusinessUser\assets\img\icons\brands\asana.png" />
+    <Content Include="Content\BusinessUser\assets\img\icons\brands\behance.png" />
+    <Content Include="Content\BusinessUser\assets\img\icons\brands\dribbble.png" />
+    <Content Include="Content\BusinessUser\assets\img\icons\brands\facebook.png" />
+    <Content Include="Content\BusinessUser\assets\img\icons\brands\github.png" />
+    <Content Include="Content\BusinessUser\assets\img\icons\brands\google.png" />
+    <Content Include="Content\BusinessUser\assets\img\icons\brands\instagram.png" />
+    <Content Include="Content\BusinessUser\assets\img\icons\brands\mailchimp.png" />
+    <Content Include="Content\BusinessUser\assets\img\icons\brands\slack.png" />
+    <Content Include="Content\BusinessUser\assets\img\icons\brands\twitter.png" />
+    <Content Include="Content\BusinessUser\assets\img\icons\unicons\cc-primary.png" />
+    <Content Include="Content\BusinessUser\assets\img\icons\unicons\cc-success.png" />
+    <Content Include="Content\BusinessUser\assets\img\icons\unicons\cc-warning.png" />
+    <Content Include="Content\BusinessUser\assets\img\icons\unicons\chart-success.png" />
+    <Content Include="Content\BusinessUser\assets\img\icons\unicons\chart.png" />
+    <Content Include="Content\BusinessUser\assets\img\icons\unicons\paypal.png" />
+    <Content Include="Content\BusinessUser\assets\img\icons\unicons\wallet-info.png" />
+    <Content Include="Content\BusinessUser\assets\img\icons\unicons\wallet.png" />
+    <Content Include="Content\BusinessUser\assets\img\illustrations\girl-doing-yoga-light.png" />
+    <Content Include="Content\BusinessUser\assets\img\illustrations\man-with-laptop-light.png" />
+    <Content Include="Content\BusinessUser\assets\img\illustrations\page-misc-error-light.png" />
+    <Content Include="Content\BusinessUser\assets\img\layouts\layout-container-light.png" />
+    <Content Include="Content\BusinessUser\assets\img\layouts\layout-fluid-light.png" />
+    <Content Include="Content\BusinessUser\assets\img\layouts\layout-without-menu-light.png" />
+    <Content Include="Content\BusinessUser\assets\img\layouts\layout-without-navbar-light.png" />
+    <Content Include="Content\BusinessUser\assets\js\config.js" />
+    <Content Include="Content\BusinessUser\assets\js\dashboards-analytics.js" />
+    <Content Include="Content\BusinessUser\assets\js\extended-ui-perfect-scrollbar.js" />
+    <Content Include="Content\BusinessUser\assets\js\form-basic-inputs.js" />
+    <Content Include="Content\BusinessUser\assets\js\main.js" />
+    <Content Include="Content\BusinessUser\assets\js\pages-account-settings-account.js" />
+    <Content Include="Content\BusinessUser\assets\js\ui-modals.js" />
+    <Content Include="Content\BusinessUser\assets\js\ui-popover.js" />
+    <Content Include="Content\BusinessUser\assets\js\ui-toasts.js" />
+    <Content Include="Content\BusinessUser\assets\vendor\css\core.css" />
+    <Content Include="Content\BusinessUser\assets\vendor\css\pages\page-account-settings.css" />
+    <Content Include="Content\BusinessUser\assets\vendor\css\pages\page-auth.css" />
+    <Content Include="Content\BusinessUser\assets\vendor\css\pages\page-icons.css" />
+    <Content Include="Content\BusinessUser\assets\vendor\css\pages\page-misc.css" />
+    <Content Include="Content\BusinessUser\assets\vendor\css\theme-default.css" />
+    <Content Include="Content\BusinessUser\assets\vendor\fonts\boxicons.css" />
+    <Content Include="Content\BusinessUser\assets\vendor\fonts\boxicons\boxicons.svg" />
+    <Content Include="Content\BusinessUser\assets\vendor\js\bootstrap.js" />
+    <Content Include="Content\BusinessUser\assets\vendor\js\helpers.js" />
+    <Content Include="Content\BusinessUser\assets\vendor\js\menu.js" />
+    <Content Include="Content\BusinessUser\assets\vendor\libs\apex-charts\apex-charts.css" />
+    <Content Include="Content\BusinessUser\assets\vendor\libs\apex-charts\apexcharts.js" />
+    <Content Include="Content\BusinessUser\assets\vendor\libs\highlight\highlight-github.css" />
+    <Content Include="Content\BusinessUser\assets\vendor\libs\highlight\highlight.css" />
+    <Content Include="Content\BusinessUser\assets\vendor\libs\highlight\highlight.js" />
+    <Content Include="Content\BusinessUser\assets\vendor\libs\jquery\jquery.js" />
+    <Content Include="Content\BusinessUser\assets\vendor\libs\masonry\masonry.js" />
+    <Content Include="Content\BusinessUser\assets\vendor\libs\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Content\BusinessUser\assets\vendor\libs\perfect-scrollbar\perfect-scrollbar.js" />
+    <Content Include="Content\BusinessUser\assets\vendor\libs\popper\popper.js" />
+    <Content Include="Content\BusinessUser\dist\css\core.css" />
+    <Content Include="Content\BusinessUser\dist\css\pages\page-account-settings.css" />
+    <Content Include="Content\BusinessUser\dist\css\pages\page-auth.css" />
+    <Content Include="Content\BusinessUser\dist\css\pages\page-icons.css" />
+    <Content Include="Content\BusinessUser\dist\css\pages\page-misc.css" />
+    <Content Include="Content\BusinessUser\dist\css\theme-default.css" />
+    <Content Include="Content\BusinessUser\dist\fonts\boxicons.css" />
+    <Content Include="Content\BusinessUser\dist\fonts\boxicons\boxicons.svg" />
+    <Content Include="Content\BusinessUser\dist\js\bootstrap.js" />
+    <Content Include="Content\BusinessUser\dist\js\helpers.js" />
+    <Content Include="Content\BusinessUser\dist\js\menu.js" />
+    <Content Include="Content\BusinessUser\dist\libs\apex-charts\apex-charts.css" />
+    <Content Include="Content\BusinessUser\dist\libs\apex-charts\apexcharts.js" />
+    <Content Include="Content\BusinessUser\dist\libs\highlight\highlight-github.css" />
+    <Content Include="Content\BusinessUser\dist\libs\highlight\highlight.css" />
+    <Content Include="Content\BusinessUser\dist\libs\highlight\highlight.js" />
+    <Content Include="Content\BusinessUser\dist\libs\jquery\jquery.js" />
+    <Content Include="Content\BusinessUser\dist\libs\masonry\masonry.js" />
+    <Content Include="Content\BusinessUser\dist\libs\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Content\BusinessUser\dist\libs\perfect-scrollbar\perfect-scrollbar.js" />
+    <Content Include="Content\BusinessUser\dist\libs\popper\popper.js" />
+    <Content Include="Content\BusinessUser\html\auth-forgot-password-basic.html" />
+    <Content Include="Content\BusinessUser\html\auth-login-basic.html" />
+    <Content Include="Content\BusinessUser\html\auth-register-basic.html" />
+    <Content Include="Content\BusinessUser\html\cards-basic.html" />
+    <Content Include="Content\BusinessUser\html\extended-ui-perfect-scrollbar.html" />
+    <Content Include="Content\BusinessUser\html\extended-ui-text-divider.html" />
+    <Content Include="Content\BusinessUser\html\form-layouts-horizontal.html" />
+    <Content Include="Content\BusinessUser\html\form-layouts-vertical.html" />
+    <Content Include="Content\BusinessUser\html\forms-basic-inputs.html" />
+    <Content Include="Content\BusinessUser\html\forms-input-groups.html" />
+    <Content Include="Content\BusinessUser\html\icons-boxicons.html" />
+    <Content Include="Content\BusinessUser\html\index.html" />
+    <Content Include="Content\BusinessUser\html\layouts-blank.html" />
+    <Content Include="Content\BusinessUser\html\layouts-container.html" />
+    <Content Include="Content\BusinessUser\html\layouts-fluid.html" />
+    <Content Include="Content\BusinessUser\html\layouts-without-menu.html" />
+    <Content Include="Content\BusinessUser\html\layouts-without-navbar.html" />
+    <Content Include="Content\BusinessUser\html\pages-account-settings-account.html" />
+    <Content Include="Content\BusinessUser\html\pages-account-settings-connections.html" />
+    <Content Include="Content\BusinessUser\html\pages-account-settings-notifications.html" />
+    <Content Include="Content\BusinessUser\html\pages-misc-error.html" />
+    <Content Include="Content\BusinessUser\html\pages-misc-under-maintenance.html" />
+    <Content Include="Content\BusinessUser\html\tables-basic.html" />
+    <Content Include="Content\BusinessUser\html\ui-accordion.html" />
+    <Content Include="Content\BusinessUser\html\ui-alerts.html" />
+    <Content Include="Content\BusinessUser\html\ui-badges.html" />
+    <Content Include="Content\BusinessUser\html\ui-buttons.html" />
+    <Content Include="Content\BusinessUser\html\ui-carousel.html" />
+    <Content Include="Content\BusinessUser\html\ui-collapse.html" />
+    <Content Include="Content\BusinessUser\html\ui-dropdowns.html" />
+    <Content Include="Content\BusinessUser\html\ui-footer.html" />
+    <Content Include="Content\BusinessUser\html\ui-list-groups.html" />
+    <Content Include="Content\BusinessUser\html\ui-modals.html" />
+    <Content Include="Content\BusinessUser\html\ui-navbar.html" />
+    <Content Include="Content\BusinessUser\html\ui-offcanvas.html" />
+    <Content Include="Content\BusinessUser\html\ui-pagination-breadcrumbs.html" />
+    <Content Include="Content\BusinessUser\html\ui-progress.html" />
+    <Content Include="Content\BusinessUser\html\ui-spinners.html" />
+    <Content Include="Content\BusinessUser\html\ui-tabs-pills.html" />
+    <Content Include="Content\BusinessUser\html\ui-toasts.html" />
+    <Content Include="Content\BusinessUser\html\ui-tooltips-popovers.html" />
+    <Content Include="Content\BusinessUser\html\ui-typography.html" />
+    <Content Include="Content\BusinessUser\js\bootstrap.js" />
+    <Content Include="Content\BusinessUser\js\helpers.js" />
+    <Content Include="Content\BusinessUser\js\menu.js" />
+    <Content Include="Content\BusinessUser\libs\apex-charts\apexcharts.js" />
+    <Content Include="Content\BusinessUser\libs\highlight\highlight.js" />
+    <Content Include="Content\BusinessUser\libs\jquery\jquery.js" />
+    <Content Include="Content\BusinessUser\libs\masonry\masonry.js" />
+    <Content Include="Content\BusinessUser\libs\perfect-scrollbar\perfect-scrollbar.js" />
+    <Content Include="Content\BusinessUser\libs\popper\popper.js" />
+    <Content Include="Content\BusinessUser\tasks\build.js" />
+    <Content Include="Content\BusinessUser\tasks\prod.js" />
+    <Content Include="Content\Visiter\css\animate.css" />
+    <Content Include="Content\Visiter\css\bootstrap.min.css" />
+    <Content Include="Content\Visiter\css\element.css" />
+    <Content Include="Content\Visiter\css\font-awesome.min.css" />
+    <Content Include="Content\Visiter\css\ken-burns.css" />
+    <Content Include="Content\Visiter\css\style.css" />
+    <Content Include="Content\Visiter\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Visiter\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Visiter\img\1.jpg" />
+    <Content Include="Content\Visiter\img\10.jpg" />
+    <Content Include="Content\Visiter\img\11.jpg" />
+    <Content Include="Content\Visiter\img\12.jpg" />
+    <Content Include="Content\Visiter\img\1200\65.jpg" />
+    <Content Include="Content\Visiter\img\1200\66.jpg" />
+    <Content Include="Content\Visiter\img\1200\67.jpg" />
+    <Content Include="Content\Visiter\img\1200\68.jpg" />
+    <Content Include="Content\Visiter\img\13.jpg" />
+    <Content Include="Content\Visiter\img\14.jpg" />
+    <Content Include="Content\Visiter\img\15.jpg" />
+    <Content Include="Content\Visiter\img\16.jpg" />
+    <Content Include="Content\Visiter\img\17.jpg" />
+    <Content Include="Content\Visiter\img\18.jpg" />
+    <Content Include="Content\Visiter\img\19.jpg" />
+    <Content Include="Content\Visiter\img\2.jpg" />
+    <Content Include="Content\Visiter\img\20.jpg" />
+    <Content Include="Content\Visiter\img\21.jpg" />
+    <Content Include="Content\Visiter\img\22.jpg" />
+    <Content Include="Content\Visiter\img\23.jpg" />
+    <Content Include="Content\Visiter\img\24.jpg" />
+    <Content Include="Content\Visiter\img\25.jpg" />
+    <Content Include="Content\Visiter\img\26.jpg" />
+    <Content Include="Content\Visiter\img\27.jpg" />
+    <Content Include="Content\Visiter\img\28.jpg" />
+    <Content Include="Content\Visiter\img\29.jpg" />
+    <Content Include="Content\Visiter\img\3.jpg" />
+    <Content Include="Content\Visiter\img\30.jpg" />
+    <Content Include="Content\Visiter\img\31.jpg" />
+    <Content Include="Content\Visiter\img\32.jpg" />
+    <Content Include="Content\Visiter\img\33.jpg" />
+    <Content Include="Content\Visiter\img\34.jpg" />
+    <Content Include="Content\Visiter\img\35.jpg" />
+    <Content Include="Content\Visiter\img\36.jpg" />
+    <Content Include="Content\Visiter\img\37.jpg" />
+    <Content Include="Content\Visiter\img\38.jpg" />
+    <Content Include="Content\Visiter\img\39.jpg" />
+    <Content Include="Content\Visiter\img\4.jpg" />
+    <Content Include="Content\Visiter\img\40.jpg" />
+    <Content Include="Content\Visiter\img\41.jpg" />
+    <Content Include="Content\Visiter\img\42.jpg" />
+    <Content Include="Content\Visiter\img\43.jpg" />
+    <Content Include="Content\Visiter\img\44.jpg" />
+    <Content Include="Content\Visiter\img\45.jpg" />
+    <Content Include="Content\Visiter\img\46.jpg" />
+    <Content Include="Content\Visiter\img\47.jpg" />
+    <Content Include="Content\Visiter\img\48.jpg" />
+    <Content Include="Content\Visiter\img\49.jpg" />
+    <Content Include="Content\Visiter\img\5.jpg" />
+    <Content Include="Content\Visiter\img\50.jpg" />
+    <Content Include="Content\Visiter\img\51.jpg" />
+    <Content Include="Content\Visiter\img\52.jpg" />
+    <Content Include="Content\Visiter\img\53.jpg" />
+    <Content Include="Content\Visiter\img\55.jpg" />
+    <Content Include="Content\Visiter\img\56.jpg" />
+    <Content Include="Content\Visiter\img\57.jpg" />
+    <Content Include="Content\Visiter\img\58.jpg" />
+    <Content Include="Content\Visiter\img\59.jpg" />
+    <Content Include="Content\Visiter\img\6.jpg" />
+    <Content Include="Content\Visiter\img\60.jpg" />
+    <Content Include="Content\Visiter\img\61.jpg" />
+    <Content Include="Content\Visiter\img\62.jpg" />
+    <Content Include="Content\Visiter\img\63.jpg" />
+    <Content Include="Content\Visiter\img\64.jpg" />
+    <Content Include="Content\Visiter\img\65.jpg" />
+    <Content Include="Content\Visiter\img\66.jpg" />
+    <Content Include="Content\Visiter\img\67.jpg" />
+    <Content Include="Content\Visiter\img\68.jpg" />
+    <Content Include="Content\Visiter\img\69.jpg" />
+    <Content Include="Content\Visiter\img\7.jpg" />
+    <Content Include="Content\Visiter\img\70.jpg" />
+    <Content Include="Content\Visiter\img\71.jpg" />
+    <Content Include="Content\Visiter\img\72.jpg" />
+    <Content Include="Content\Visiter\img\73.jpg" />
+    <Content Include="Content\Visiter\img\74.jpg" />
+    <Content Include="Content\Visiter\img\8.jpg" />
+    <Content Include="Content\Visiter\img\9.jpg" />
+    <Content Include="Content\Visiter\img\Admin.jpg" />
+    <Content Include="Content\Visiter\img\Bus User.png" />
+    <Content Include="Content\Visiter\img\carosal7.jfif" />
+    <Content Include="Content\Visiter\img\carousal 8.jpg" />
+    <Content Include="Content\Visiter\img\carousal-1.jpg" />
+    <Content Include="Content\Visiter\img\carousal-2.jpg" />
+    <Content Include="Content\Visiter\img\carousal-3.jfif" />
+    <Content Include="Content\Visiter\img\carousal-4.jpg" />
+    <Content Include="Content\Visiter\img\carousal-5.jpg" />
+    <Content Include="Content\Visiter\img\carousal-6.jpg" />
+    <Content Include="Content\Visiter\img\no user.jpg" />
+    <Content Include="Content\Visiter\img\recipe1.jpg" />
+    <Content Include="Content\Visiter\img\recipe2.jpg" />
+    <Content Include="Content\Visiter\img\recipe3.jpg" />
+    <Content Include="Content\Visiter\img\recipe4.jpg" />
+    <Content Include="Content\Visiter\img\recipe5.jpg" />
+    <Content Include="Content\Visiter\img\recipe6.jpg" />
+    <Content Include="Content\Visiter\img\recipe7.jpg" />
+    <Content Include="Content\Visiter\img\style.css" />
+    <Content Include="Content\Visiter\img\user.png" />
+    <Content Include="Content\Visiter\js\bootstrap.min.js" />
+    <Content Include="Content\Visiter\js\cbpAnimatedHeader.js" />
+    <Content Include="Content\Visiter\js\classie.js" />
+    <Content Include="Content\Visiter\js\codebase\dhtmlxcalendar.css" />
+    <Content Include="Content\Visiter\js\codebase\dhtmlxcalendar.js" />
+    <Content Include="Content\Visiter\js\codebase\imgs\dhxcalendar_material\dhxcalendar_arrow_left.png" />
+    <Content Include="Content\Visiter\js\codebase\imgs\dhxcalendar_material\dhxcalendar_arrow_right.png" />
+    <Content Include="Content\Visiter\js\codebase\imgs\dhxcalendar_material\dhxcalendar_clock.png" />
+    <Content Include="Content\Visiter\js\codebase\imgs\dhxcalendar_material\dhxcalendar_marker.gif" />
+    <Content Include="Content\Visiter\js\codebase\imgs\dhxcalendar_material\dhxcalendar_selector_bottom.gif" />
+    <Content Include="Content\Visiter\js\codebase\imgs\dhxcalendar_material\dhxcalendar_selector_top.gif" />
+    <Content Include="Content\Visiter\js\custom.js" />
+    <Content Include="Content\Visiter\js\ekko-lightbox.js" />
+    <Content Include="Content\Visiter\js\jquery-2.1.1.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\Attabad lake.jpg" />
+    <Content Include="Images\Badshahi Mosque.jpg" />
+    <Content Include="Images\Baltoro Glacier.jpeg" />
+    <Content Include="Images\Bhurban.jpg" />
+    <Content Include="Images\carousal 8.jpg" />
+    <Content Include="Images\Concordia.jpg" />
+    <Content Include="Images\download.jpg" />
+    <Content Include="Images\faisal mosque.jpg" />
+    <Content Include="Images\gojal valley.jpg" />
+    <Content Include="Images\Gwadar.jpg" />
+    <Content Include="Images\jahaz banda kumrat valley.jpg" />
+    <Content Include="Images\kalam valley.jpg" />
+    <Content Include="Images\kalash.jpg" />
+    <Content Include="Images\kanhatti gardens.jpg" />
+    <Content Include="Images\karambar lake.jpg" />
+    <Content Include="Images\Katas raj temple.jpg" />
+    <Content Include="Images\Member1.png" />
+    <Content Include="Images\Misbah.png" />
+    <Content Include="Images\Profile Photo %281%29.png" />
+    <Content Include="Images\recipe1.jpg" />
+    <Content Include="Images\recipe2.jpg" />
+    <Content Include="Images\recipe3.jpg" />
+    <Content Include="Images\recipe4.jpg" />
+    <Content Include="Images\recipe5.jpg" />
+    <Content Include="Images\recipe6.jpg" />
+    <Content Include="Images\recipe7.jpg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\Admin\assets\vendor\fonts\boxicons\boxicons.eot" />
+    <Content Include="Content\Admin\assets\vendor\fonts\boxicons\boxicons.ttf" />
+    <Content Include="Content\Admin\assets\vendor\fonts\boxicons\boxicons.woff" />
+    <Content Include="Content\Admin\assets\vendor\fonts\boxicons\boxicons.woff2" />
+    <Content Include="Content\Admin\dist\fonts\boxicons\boxicons.eot" />
+    <Content Include="Content\Admin\dist\fonts\boxicons\boxicons.ttf" />
+    <Content Include="Content\Admin\dist\fonts\boxicons\boxicons.woff" />
+    <Content Include="Content\Admin\dist\fonts\boxicons\boxicons.woff2" />
+    <Content Include="Content\Admin\fonts\boxicons.scss" />
+    <Content Include="Content\Admin\libs\apex-charts\apex-charts.scss" />
+    <Content Include="Content\Admin\libs\highlight\highlight-github.scss" />
+    <Content Include="Content\Admin\libs\highlight\highlight.scss" />
+    <Content Include="Content\Admin\libs\perfect-scrollbar\perfect-scrollbar.scss" />
+    <Content Include="Content\Admin\scss\core.scss" />
+    <Content Include="Content\Admin\scss\pages\page-account-settings.scss" />
+    <Content Include="Content\Admin\scss\pages\page-auth.scss" />
+    <Content Include="Content\Admin\scss\pages\page-icons.scss" />
+    <Content Include="Content\Admin\scss\pages\page-misc.scss" />
+    <Content Include="Content\Admin\scss\theme-default.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\forms\_floating-labels.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\forms\_form-control.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\forms\_form-range.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\forms\_form-select.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\forms\_input-group.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\forms\_labels.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\forms\_validation.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\mixins\_alert.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\mixins\_badge.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\mixins\_buttons.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\mixins\_caret.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\mixins\_dropdown.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\mixins\_forms.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\mixins\_list-group.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\mixins\_misc.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\mixins\_navs.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\mixins\_pagination.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\mixins\_progress.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\mixins\_table-variants.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\mixins\_toasts.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_accordion.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_alert.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_badge.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_breadcrumb.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_button-group.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_buttons.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_card.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_carousel.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_close.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_dropdown.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_forms.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_functions.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_include.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_list-group.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_mixins.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_modal.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_nav.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_navbar.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_offcanvas.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_pagination.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_popover.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_progress.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_reboot.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_root.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_spinners.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_tables.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_toasts.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_tooltip.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_type.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_utilities-ltr.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_utilities.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap-extended\_variables.scss" />
+    <Content Include="Content\Admin\scss\_bootstrap.scss" />
+    <Content Include="Content\Admin\scss\_colors.scss" />
+    <Content Include="Content\Admin\scss\_components.scss" />
+    <Content Include="Content\Admin\scss\_components\mixins\_app-brand.scss" />
+    <Content Include="Content\Admin\scss\_components\mixins\_avatar.scss" />
+    <Content Include="Content\Admin\scss\_components\mixins\_footer.scss" />
+    <Content Include="Content\Admin\scss\_components\mixins\_menu.scss" />
+    <Content Include="Content\Admin\scss\_components\mixins\_misc.scss" />
+    <Content Include="Content\Admin\scss\_components\mixins\_navbar.scss" />
+    <Content Include="Content\Admin\scss\_components\mixins\_text-divider.scss" />
+    <Content Include="Content\Admin\scss\_components\_app-brand.scss" />
+    <Content Include="Content\Admin\scss\_components\_avatar.scss" />
+    <Content Include="Content\Admin\scss\_components\_base.scss" />
+    <Content Include="Content\Admin\scss\_components\_common.scss" />
+    <Content Include="Content\Admin\scss\_components\_footer.scss" />
+    <Content Include="Content\Admin\scss\_components\_include.scss" />
+    <Content Include="Content\Admin\scss\_components\_layout.scss" />
+    <Content Include="Content\Admin\scss\_components\_menu.scss" />
+    <Content Include="Content\Admin\scss\_components\_mixins.scss" />
+    <Content Include="Content\Admin\scss\_components\_text-divider.scss" />
+    <Content Include="Content\Admin\scss\_components\_variables.scss" />
+    <Content Include="Content\Admin\scss\_custom-variables\_bootstrap-extended.scss" />
+    <Content Include="Content\Admin\scss\_custom-variables\_components.scss" />
+    <Content Include="Content\Admin\scss\_custom-variables\_libs.scss" />
+    <Content Include="Content\Admin\scss\_custom-variables\_pages.scss" />
+    <Content Include="Content\Admin\scss\_custom-variables\_support.scss" />
+    <Content Include="Content\Admin\scss\_theme\_common.scss" />
+    <Content Include="Content\Admin\scss\_theme\_theme.scss" />
+    <Content Include="Content\BusinessUser\assets\vendor\fonts\boxicons\boxicons.eot" />
+    <Content Include="Content\BusinessUser\assets\vendor\fonts\boxicons\boxicons.ttf" />
+    <Content Include="Content\BusinessUser\assets\vendor\fonts\boxicons\boxicons.woff" />
+    <Content Include="Content\BusinessUser\assets\vendor\fonts\boxicons\boxicons.woff2" />
+    <Content Include="Content\BusinessUser\dist\fonts\boxicons\boxicons.eot" />
+    <Content Include="Content\BusinessUser\dist\fonts\boxicons\boxicons.ttf" />
+    <Content Include="Content\BusinessUser\dist\fonts\boxicons\boxicons.woff" />
+    <Content Include="Content\BusinessUser\dist\fonts\boxicons\boxicons.woff2" />
+    <Content Include="Content\BusinessUser\fonts\boxicons.scss" />
+    <Content Include="Content\BusinessUser\libs\apex-charts\apex-charts.scss" />
+    <Content Include="Content\BusinessUser\libs\highlight\highlight-github.scss" />
+    <Content Include="Content\BusinessUser\libs\highlight\highlight.scss" />
+    <Content Include="Content\BusinessUser\libs\perfect-scrollbar\perfect-scrollbar.scss" />
+    <Content Include="Content\BusinessUser\scss\core.scss" />
+    <Content Include="Content\BusinessUser\scss\pages\page-account-settings.scss" />
+    <Content Include="Content\BusinessUser\scss\pages\page-auth.scss" />
+    <Content Include="Content\BusinessUser\scss\pages\page-icons.scss" />
+    <Content Include="Content\BusinessUser\scss\pages\page-misc.scss" />
+    <Content Include="Content\BusinessUser\scss\theme-default.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\forms\_floating-labels.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\forms\_form-control.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\forms\_form-range.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\forms\_form-select.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\forms\_input-group.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\forms\_labels.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\forms\_validation.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\mixins\_alert.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\mixins\_badge.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\mixins\_buttons.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\mixins\_caret.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\mixins\_dropdown.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\mixins\_forms.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\mixins\_list-group.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\mixins\_misc.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\mixins\_navs.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\mixins\_pagination.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\mixins\_progress.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\mixins\_table-variants.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\mixins\_toasts.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_accordion.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_alert.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_badge.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_breadcrumb.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_button-group.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_buttons.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_card.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_carousel.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_close.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_dropdown.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_forms.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_functions.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_include.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_list-group.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_mixins.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_modal.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_nav.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_navbar.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_offcanvas.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_pagination.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_popover.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_progress.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_reboot.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_root.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_spinners.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_tables.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_toasts.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_tooltip.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_type.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_utilities-ltr.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_utilities.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap-extended\_variables.scss" />
+    <Content Include="Content\BusinessUser\scss\_bootstrap.scss" />
+    <Content Include="Content\BusinessUser\scss\_colors.scss" />
+    <Content Include="Content\BusinessUser\scss\_components.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\mixins\_app-brand.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\mixins\_avatar.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\mixins\_footer.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\mixins\_menu.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\mixins\_misc.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\mixins\_navbar.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\mixins\_text-divider.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\_app-brand.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\_avatar.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\_base.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\_common.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\_footer.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\_include.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\_layout.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\_menu.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\_mixins.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\_text-divider.scss" />
+    <Content Include="Content\BusinessUser\scss\_components\_variables.scss" />
+    <Content Include="Content\BusinessUser\scss\_custom-variables\_bootstrap-extended.scss" />
+    <Content Include="Content\BusinessUser\scss\_custom-variables\_components.scss" />
+    <Content Include="Content\BusinessUser\scss\_custom-variables\_libs.scss" />
+    <Content Include="Content\BusinessUser\scss\_custom-variables\_pages.scss" />
+    <Content Include="Content\BusinessUser\scss\_custom-variables\_support.scss" />
+    <Content Include="Content\BusinessUser\scss\_theme\_common.scss" />
+    <Content Include="Content\BusinessUser\scss\_theme\_theme.scss" />
+    <Content Include="Content\Visiter\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Visiter\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Visiter\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Visiter\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Visiter\fonts\FontAwesome.otf" />
+    <Content Include="Content\Visiter\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Visiter\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Visiter\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Visiter\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Images\gulpur mahuli waterfalls.webp" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\IndexAdmin.cshtml" />
+    <Content Include="Views\Home\IndexUser.cshtml" />
+    <Content Include="Views\Shared\_LayoutBusinessUser.cshtml" />
+    <Content Include="Views\Home\LoginBusinessUser.cshtml" />
+    <Content Include="Views\Home\LoginAdmin.cshtml" />
+    <Content Include="Views\Admins\Create.cshtml" />
+    <Content Include="Views\Admins\Delete.cshtml" />
+    <Content Include="Views\Admins\Details.cshtml" />
+    <Content Include="Views\Admins\Edit.cshtml" />
+    <Content Include="Views\Admins\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Home\LoginUser.cshtml" />
+    <Content Include="Views\Home\Reports.cshtml" />
+    <Content Include="Views\Home\DisplayPackages.cshtml" />
+    <Content Include="Views\Business_User\Create.cshtml" />
+    <Content Include="Views\Business_User\Delete.cshtml" />
+    <Content Include="Views\Business_User\Details.cshtml" />
+    <Content Include="Views\Business_User\Edit.cshtml" />
+    <Content Include="Views\Business_User\Index.cshtml" />
+    <Content Include="Views\Home\IndexBusinessUser.cshtml" />
+    <Content Include="Views\Shared\_LayoutVisiter.cshtml" />
+    <Content Include="Views\Home\IndexVisiter.cshtml" />
+    <Content Include="Views\Home\DisplayCategories.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Home\DisplayDestinations.cshtml" />
+    <Content Include="Views\Home\PackageDetails.cshtml" />
+    <Content Include="Views\WishLists\Create.cshtml" />
+    <Content Include="Views\WishLists\Delete.cshtml" />
+    <Content Include="Views\WishLists\Details.cshtml" />
+    <Content Include="Views\WishLists\Edit.cshtml" />
+    <Content Include="Views\WishLists\Index.cshtml" />
+    <Content Include="Views\Home\wishlist.cshtml" />
+    <Content Include="Views\Home\Booking.cshtml" />
+    <Content Include="Views\Home\TourBooked.cshtml" />
+    <Content Include="Views\Destinations\Create.cshtml" />
+    <Content Include="Views\Destinations\Delete.cshtml" />
+    <Content Include="Views\Destinations\Details.cshtml" />
+    <Content Include="Views\Destinations\Edit.cshtml" />
+    <Content Include="Views\Destinations\Index.cshtml" />
+    <Content Include="Views\Bookings\Create.cshtml" />
+    <Content Include="Views\Bookings\Delete.cshtml" />
+    <Content Include="Views\Bookings\Details.cshtml" />
+    <Content Include="Views\Bookings\Edit.cshtml" />
+    <Content Include="Views\Bookings\Index.cshtml" />
+    <Content Include="Views\COMMENTs\Create.cshtml" />
+    <Content Include="Views\COMMENTs\Delete.cshtml" />
+    <Content Include="Views\COMMENTs\Details.cshtml" />
+    <Content Include="Views\COMMENTs\Edit.cshtml" />
+    <Content Include="Views\COMMENTs\Index.cshtml" />
+    <Content Include="Views\Activities\Create.cshtml" />
+    <Content Include="Views\Activities\Delete.cshtml" />
+    <Content Include="Views\Activities\Details.cshtml" />
+    <Content Include="Views\Activities\Edit.cshtml" />
+    <Content Include="Views\Activities\Index.cshtml" />
+    <Content Include="Views\Payments\Create.cshtml" />
+    <Content Include="Views\Payments\Delete.cshtml" />
+    <Content Include="Views\Payments\Details.cshtml" />
+    <Content Include="Views\Payments\Edit.cshtml" />
+    <Content Include="Views\Payments\Index.cshtml" />
+    <Content Include="Views\Places\Create.cshtml" />
+    <Content Include="Views\Places\Delete.cshtml" />
+    <Content Include="Views\Places\Details.cshtml" />
+    <Content Include="Views\Places\Edit.cshtml" />
+    <Content Include="Views\Places\Index.cshtml" />
+    <Content Include="Views\ActivitiesAdmin\Create.cshtml" />
+    <Content Include="Views\ActivitiesAdmin\Delete.cshtml" />
+    <Content Include="Views\ActivitiesAdmin\Details.cshtml" />
+    <Content Include="Views\ActivitiesAdmin\Edit.cshtml" />
+    <Content Include="Views\ActivitiesAdmin\Index.cshtml" />
+    <Content Include="Views\PACKAGEs\Create.cshtml" />
+    <Content Include="Views\PACKAGEs\Delete.cshtml" />
+    <Content Include="Views\PACKAGEs\Details.cshtml" />
+    <Content Include="Views\PACKAGEs\Edit.cshtml" />
+    <Content Include="Views\PACKAGEs\Index.cshtml" />
+    <Content Include="Views\PlacesAdmin\Create.cshtml" />
+    <Content Include="Views\PlacesAdmin\Delete.cshtml" />
+    <Content Include="Views\PlacesAdmin\Details.cshtml" />
+    <Content Include="Views\PlacesAdmin\Edit.cshtml" />
+    <Content Include="Views\PlacesAdmin\Index.cshtml" />
+    <Content Include="Views\PACKAGEsAdmin\Create.cshtml" />
+    <Content Include="Views\PACKAGEsAdmin\Delete.cshtml" />
+    <Content Include="Views\PACKAGEsAdmin\Details.cshtml" />
+    <Content Include="Views\PACKAGEsAdmin\Edit.cshtml" />
+    <Content Include="Views\PACKAGEsAdmin\Index.cshtml" />
+    <Content Include="Views\DestinationsAdmin\Create.cshtml" />
+    <Content Include="Views\DestinationsAdmin\Delete.cshtml" />
+    <Content Include="Views\DestinationsAdmin\Details.cshtml" />
+    <Content Include="Views\DestinationsAdmin\Edit.cshtml" />
+    <Content Include="Views\DestinationsAdmin\Index.cshtml" />
+    <Content Include="Views\CategoriesAdmin\Create.cshtml" />
+    <Content Include="Views\CategoriesAdmin\Delete.cshtml" />
+    <Content Include="Views\CategoriesAdmin\Details.cshtml" />
+    <Content Include="Views\CategoriesAdmin\Edit.cshtml" />
+    <Content Include="Views\CategoriesAdmin\Index.cshtml" />
+    <Content Include="Views\UsersA\Create.cshtml" />
+    <Content Include="Views\UsersA\Delete.cshtml" />
+    <Content Include="Views\UsersA\Details.cshtml" />
+    <Content Include="Views\UsersA\Edit.cshtml" />
+    <Content Include="Views\UsersA\Index.cshtml" />
+    <Content Include="Views\Business_UserA\Create.cshtml" />
+    <Content Include="Views\Business_UserA\Delete.cshtml" />
+    <Content Include="Views\Business_UserA\Details.cshtml" />
+    <Content Include="Views\Business_UserA\Edit.cshtml" />
+    <Content Include="Views\Business_UserA\Index.cshtml" />
+    <Content Include="Views\Home\BusinessUserOrders.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ActivityImage\" />
+    <Folder Include="AdminImage\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="BusinessUserImage\" />
+    <Folder Include="CategoryPicture\" />
+    <Folder Include="DestinationImage\" />
+    <Folder Include="PackageImage\" />
+    <Folder Include="PlacesImage\" />
+    <Folder Include="UserImage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3586</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44353/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

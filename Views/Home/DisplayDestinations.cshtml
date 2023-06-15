@@ -1,0 +1,63 @@
+﻿
+@model IEnumerable<Fin.Models.Destination>
+
+@using Fin.Models
+
+@{
+    ViewBag.Title = "DisplayDestinations";
+}
+
+@{
+    // Layout = "~/Views/Shared/_LayoutBusinessUser.cshtml";
+    //Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutVisiter.cshtml";
+}
+
+
+
+
+    <section id="list">
+        <div class="container">
+            <h1 style="text-align: center; font-size: 30px; margin-top:40px; margin-bottom:50px;"> Destinations</h1>
+            
+
+            <div class="row">
+                <section>
+                    <div class="categories-container">
+                        @foreach (var d in Model)
+                        {
+                            <div class="col-sm-4 space_left">
+                                <div class="list_1_right_2_inner clearfix">
+                                    <div class="grid clearfix">
+                                        <figure class="effect-ming">
+                                            <img style="width: 100%; height: 250px;" src="@Url.Content(d.Des_Image)" alt="img08" />
+                                            <figcaption>
+                                                <h2><span>@d.Des_Name</span></h2>
+                                                <a href="@Url.Action("DisplayPackages","Home",new { id = d.Destination_Id,type="destination"})">View more</a>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                    <div style="margin-bottom:20px;"  class="list_1_right_2_inner_1 clearfix">
+                                        <div class="col-sm-8">
+                                            <h6>@d.Des_Address</h6>
+                                            <p> @d.Des_description</p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,124 @@
+﻿@model IEnumerable<Fin.Models.WishList>
+@using Fin.Models
+@{
+
+    Layout = "~/Views/Shared/_LayoutVisiter.cshtml";
+    var loginUser = (Fin.Models.User)Session["LoginUser"];
+}
+@{
+    ViewBag.Title = "wishlist";
+}
+@Html.Raw(TempData["Message"])
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Package to Your Wishlist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1;
+            margin: 40px 40px 40px 40px;
+            align-items: center;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .image {
+            width: 130px;
+            height: auto;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+            .button:hover {
+                background-color: #45a049;
+            }
+
+        tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1 style="text-align-last:center ; font-size: 30px;"> Your Wish List</h1>
+    <br />
+
+    <table class="table-hover table-bordered ">
+        <thead>
+            <tr>
+                <th>Tour Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Remove</th>
+                <th>Booking</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td> @p.PACKAGE.Package_title </td>
+                    <td>@p.PACKAGE.Package_Price </td>
+                    <td> @p.PACKAGE.Package_description </td>
+
+                    <td><img class="image" src="@Url.Content(p.PACKAGE.Package_Image)" alt="@p.PACKAGE.Package_title" /></td>
+                    <td><a class="button" href="@Url.Action("RemoveFromWish", "Home", new { id = p.Wishlist_id })">Remove</a></td>
+                    <td><a class="button" href="@Url.Action("Booking", "Home", new { id = p.PACKAGE.Package_id })">Book Now</a></td>
+                </tr>
+
+
+            }
+
+
+
+            @if (Model == null || Model.Count() == 0)
+            {
+                <tr>
+                    <td colspan="6" align="center">
+                        <b style="color:forestgreen; font-size:25px; text-align:center"> Your Wish List is Empty</b>
+                        <br />
+                        <a href="@Url.Action("DisplayPackages","Home")">Add Package in your WishList</a>
+                    </td>
+                </tr>
+            }
+            <!-- Add more tour rows as needed -->
+        </tbody>
+    </table>
+
+</body>
+</html>
+

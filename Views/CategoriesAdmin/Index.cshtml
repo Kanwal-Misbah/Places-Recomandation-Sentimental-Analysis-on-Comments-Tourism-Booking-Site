@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Fin.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+@{
+
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+<h2>Index</h2>
+
+<p>
+   
+    <a href="@Url.Action("Create","CategoriesAdmin")"><button style="margin-left: 50px; margin-top:50px" class="btn btn-sm btn-outline-primary">Add New Category</button></a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cat_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cat_description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cat_Image)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cat_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cat_description)
+            </td>
+            <td>
+
+                <img style="width:50% ; height: 50%" src=" @Url.Content(item.Cat_Image)" />
+
+            </td>
+            <td>
+
+                <a href="@Url.Action("Edit","CategoriesAdmin", new { id = item.Category_ID })"> <i style="color:green" class="bx bx-edit"></i></a>
+                <a href="@Url.Action("Details","CategoriesAdmin", new { id = item.Category_ID })"> <i style="color:blue" class="bx bx-detail"></i></a>
+                @if (item.PACKAGEs.Count() == 0)
+                {
+                   
+                    <a href="@Url.Action("Delete", "CategoriesAdmin", new { id = item.Category_ID })"> <i style="color:red" class="bx bx-trash"></i></a>
+                }
+                else
+                {
+                    <a onclick="alert('You cant delete this! Beacuse this Destination is part of some packages')"> <i style="color:red" class="bx bx-trash"></i></a>
+
+
+                }
+              
+            </td>
+        </tr>
+    }
+
+</table>

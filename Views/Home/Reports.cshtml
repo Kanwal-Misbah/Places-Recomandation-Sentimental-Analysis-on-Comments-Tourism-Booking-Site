@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Fin.Models.Booking>
+@{ ViewBag.Title = "Reports"; }
+
+
+
+@{ // Layout = "~/Views/Shared/_LayoutBusinessUser.cshtml";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    //Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    //Layout = "~/Views/Shared/_LayoutVisiter.cshtml"; }
+
+}
+<div id="printArea">
+    <h1>Reports</h1>
+
+    @using (Html.BeginForm("Reports", "Home", FormMethod.Post))
+    {
+<table class="table">
+
+
+    <tr>
+        <td>Date From: </td>
+        <td><input type="datetime-local" name="DateFrom" value="@ViewBag.DateFrom" class="form-control" /></td>
+        <td>Date To: </td>
+        <td><input type="datetime-local" name="DateTo" value="@ViewBag.DateTo" class="form-control" /></td>
+
+    </tr>
+
+    <tr>
+        <td>Category:</td>
+        <td>@Html.DropDownList("Category", ViewBag.Category as SelectList, "Select Category", htmlAttributes: new { @class = "form-control" })</td>
+        <td>Place:</td>
+        <td>@Html.DropDownList("Package", ViewBag.Package as SelectList, "Select Package", htmlAttributes: new { @class = "form-control" })</td>
+
+
+    </tr>
+    <tr>
+        <td><input type="submit" value="Generate Report" style="margin-left: 50px; margin-top:50px" class="btn btn-sm btn-outline-primary" /></td>
+        <td><input type="submit" onclick="PrintFunction()" value="Print" style="margin-left: 50px; margin-top:50px" class="btn btn-sm btn-outline-primary" /></td>
+    </tr>
+
+</table>}
+
+
+    <table class="table">
+        <tr>
+           
+            <th>Booking Date</th>
+            <th>Package Name</th>
+            <th>User Name</th>
+            <th>No Of Members</th>
+            <th>Departure</th>
+            <th>Total_Payment</th>
+            <th>Payment status</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+<tr>
+    
+    <td>@item.Booking_date</td>
+    <td>@item.PACKAGE.Package_title</td>
+    <td>@item.User.User_Name</td>
+    <td>@item.No_of_Members</td>
+    <td>@item.Departure</td>
+    <td>@item.Total_Payment</td>
+    <td>@item.Payment_status</td>
+</tr>
+}
+
+    </table>
+
+</div>
+<script>
+    function PrintFunction() {
+        var print = document.getElementById('printArea');
+        var printWindow = window.open('', '', 'height=400,width=800');
+        printWindow.document.write('<html><head><title>DIV Contents</title>');
+        printWindow.document.write('<style>');
+        printWindow.document.write('body { font-family: Arial, sans-serif; }');
+        printWindow.document.write('table { border-collapse: collapse; width: 100%; }');
+        printWindow.document.write('th, td { text-align: left; padding: 8px; }');
+        printWindow.document.write('th { background-color: #f2f2f2; }');
+        printWindow.document.write('</style>');
+        printWindow.document.write('</head><body>');
+        printWindow.document.write(print.innerHTML);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        setTimeout(function () {
+            printWindow.print();
+        }, 500);
+        return false;
+    }
+</script>

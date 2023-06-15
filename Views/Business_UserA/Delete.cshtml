@@ -1,0 +1,90 @@
+﻿@model Fin.Models.Business_User
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Business_User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Bus_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bus_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bus_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bus_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bank_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bank_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bank_Account_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bank_Account_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bus_Reg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bus_Reg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bus_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bus_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bus_Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bus_Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bus_logo)
+        </dt>
+
+        <dd>
+            <img style="width:50% ; height: 50%" src="@Url.Content(Model.Bus_logo)" />
+        </dd>
+
+     
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

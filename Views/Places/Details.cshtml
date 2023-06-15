@@ -1,0 +1,54 @@
+﻿@model Fin.Models.Place
+
+@{
+    ViewBag.Title = "Details";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutBusinessUser.cshtml";
+
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Place</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PACKAGE.Package_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PACKAGE.Package_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Place_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Place_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Place_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Place_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Place_Image)
+        </dt>
+
+        <dd>
+            <img style="width:50% ; height: 50%" src="@Url.Content(Model.Place_Image)" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Place_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

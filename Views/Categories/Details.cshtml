@@ -1,0 +1,46 @@
+﻿@model Fin.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutBusinessUser.cshtml";
+   
+}
+<h2>Details</h2>
+
+<div>
+    <h4>Category</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cat_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cat_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cat_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cat_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cat_Image)
+        </dt>
+
+        <dd>
+            
+            <img style="width:50% ; height: 50%" src=" @Url.Content(Model.Cat_Image)" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Category_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

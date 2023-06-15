@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Fin.Models.Activity>
+
+@{
+    ViewBag.Title = "Index";
+}
+@{
+     Layout = "~/Views/Shared/_LayoutBusinessUser.cshtml";
+ 
+}
+
+<h2>Index</h2>
+
+<p>
+   
+    <a href="@Url.Action("Create","Activities")"><button style="margin-left: 50px; margin-top:50px" class="btn btn-sm btn-outline-primary">Add New Activity</button></a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PACKAGE.Package_title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Act_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Act_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Act_description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Act_Image)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PACKAGE.Package_title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Act_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Act_Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Act_description)
+            </td>
+            <td>
+                <img style="width:100px; height: 100px" src=" @Url.Content(item.Act_Image)" />
+            </td>
+            <td>
+               
+                <a href="@Url.Action("Edit","Activities", new { id = item.Activity_ID })"> <i style="color:green" class="bx bx-edit"></i></a>
+                <a href="@Url.Action("Details","Activities", new { id = item.Activity_ID })"> <i style="color:blue" class="bx bx-detail"></i></a>
+                <a href="@Url.Action("Delete","Activities", new { id = item.Activity_ID })"> <i style="color:red" class="bx bx-trash"></i></a>
+
+            </td>
+        </tr>
+    }
+
+</table>

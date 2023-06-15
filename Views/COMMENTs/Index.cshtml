@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Fin.Models.COMMENT>
+
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+<h2>Index</h2>
+
+<p>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PACKAGE.Package_title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.User_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComentedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComentDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PACKAGE.Package_title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.User_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComentedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComentDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+             
+
+                <a href="@Url.Action("Edit","COMMENTs", new { id = item.CommentId })"> <i style="color:green" class="bx bx-edit"></i></a>
+                <a href="@Url.Action("Details","COMMENTs", new { id = item.CommentId })"> <i style="color:blue" class="bx bx-detail"></i></a>
+                <a href="@Url.Action("Delete","COMMENTs", new { id = item.CommentId })"> <i style="color:red" class="bx bx-trash"></i></a>
+
+            </td>
+        </tr>
+    }
+
+</table>

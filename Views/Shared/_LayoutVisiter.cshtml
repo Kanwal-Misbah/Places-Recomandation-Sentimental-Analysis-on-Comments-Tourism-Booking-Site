@@ -1,0 +1,231 @@
+﻿@using Fin.Models
+@{ 
+    var loginUser = (Fin.Models.User)Session["LoginUser"];
+    var db = new Model1();
+   
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tour & Travel</title>
+    <link href="~/Content/Visiter/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/Visiter/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/Content/Visiter/css/font-awesome.min.css" />
+    <link href="~/Content/Visiter/css/element.css" rel="stylesheet">
+    <link href="~/Content/Visiter/css/ken-burns.css" rel="stylesheet" type="text/css" media="all" />
+    <link type="text/css" rel="stylesheet" href="~/Content/Visiter/css/animate.css">
+    <script src="~/Content/Visiter/js/jquery-2.1.1.min.js"></script>
+    <script src="~/Content/Visiter/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/Visiter/js/codebase/dhtmlxcalendar.css" />
+    <script src="~/Content/Visiter/js/codebase/dhtmlxcalendar.js"></script>
+    <head>
+        <title>Heart Icon</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
+        <style>
+            .heart-icon {
+                color: green;
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+                .heart-icon.filled {
+                    fill: green;
+                }
+        </style>
+    </head>
+    <script>
+        var myCalendar;
+        function doOnLoad() {
+            myCalendar = new dhtmlXCalendarObject(["cal_1", "cal_2", "cal_3", "cal_4", "cal_5", "cal_6", "cal_7", "cal_8"]);
+        }
+        <script>
+            var heartIcon = document.getElementById("heartIcon");
+
+            heartIcon.addEventListener("click", function() {
+                heartIcon.classList.toggle("filled");
+            });
+    </script>
+    </script>
+
+
+</head>
+<body onload="doOnLoad();">
+    <section id="header">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand heading_tag" href="@Url.Action("IndexVisiter", "Home")"><i class="fa fa-tree"></i> Lead to Travel </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown dropdown-large">
+                            <a href="@Url.Action("IndexVisiter", "Home")" class="dropdown-toggle active_tab tag_menu">Home  </a>
+
+
+
+                        </li>
+                        <li class="dropdown">
+                            <a class="tag_menu" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Pages<span class="caret"></span></a>
+                            <ul class="dropdown-menu drop_1" role="menu">
+                                <li><a href=" @Url.Action("About", "Home")">About Us</a></li>
+                                <li><a href=" @Url.Action("DisplayCategories", "Home")">Categories</a></li>
+                                <li><a href=" @Url.Action("DisplayDestinations", "Home")">Destinations</a></li>
+                                <li><a href=" @Url.Action("DisplayPackages", "Home")">Packages</a></li>
+
+                                <li><a href=" @Url.Action("Contact", "Home")">Contact Us</a></li>
+                            </ul>
+                        </li>
+                        <!--
+
+                        <li class="dropdown dropdown-large">
+                                <a href="#" class="dropdown-toggle tag_menu" data-toggle="dropdown">Pages <span class="badge indent0"></span><b class="caret"></b></a>
+
+                                <ul class="dropdown-menu dropdown-menu-large row drop_menu_1">
+                                    <li class="col-sm-4 border_right_1">
+                                        <ul>
+
+                                            <li><a href="detail.html"> Categories</a></li>
+                                            <li><a href="detail.html"> About Us</a></li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="col-sm-4 border_right_1">
+                                        <ul>
+
+
+                                            <li><a href="#">  Destinations </a></li>
+                                            <li><a href="#">  Recomandations </a></li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="col-sm-4 border_right_1">
+                                        <ul>
+
+                                            <li><a href="#"> Packages</a></li>
+                                            <li><a href="#"> Contact Us</a></li>
+
+                                        </ul>
+                                    </li>
+
+                                </ul>
+
+                            </li>
+                               -->
+
+
+
+                        @if (loginUser == null)
+                        {
+                            <li class="dropdown">
+                                <a class="tag_menu" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Login<span class="caret"></span></a>
+                                <ul class="dropdown-menu drop_1" role="menu">
+
+                                    <li><a href=" @Url.Action("LoginUser", "Home")">Visitor</a></li>
+                                    <li><a href=" @Url.Action("LoginBusinessUser", "Home")">Business User</a></li>
+                                    <li><a href=" @Url.Action("LoginAdmin", "Home")">Admin</a></li>
+                                </ul>
+                            </li>
+
+                        }
+                        else
+                        {
+                            var wishCount = db.WishLists.Where(x => x.User_FID == loginUser.User_Id).Count();
+
+                            <li>
+                                <a class="tag_menu" href="@Url.Action("TourBooked", "Home")">Booking</a>
+                            </li>
+                            <li class="dropdown">
+                                <a class="tag_menu" href="#" data-toggle="dropdown" role="button" aria-expanded="false">@loginUser.User_Name<span class="caret"></span></a>
+                                <ul class="dropdown-menu drop_1" role="menu">
+
+                                    <li><a href=" @Url.Action("LogoutUser", "Home")">LogOut</a></li>
+
+                                    <li><a href=" @Url.Action("Index", "Users")">Edit Profile</a></li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="tag_menu" href="@Url.Action("wishlist", "Home")"> <i id="heartIcon" class="bx bx-heart heart-icon">@wishCount</i></a>
+                            </li>
+                        }
+
+
+
+
+                    </ul>
+
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </section>
+    <br />
+    <br />
+    
+
+    @RenderBody()
+
+    <!--
+
+    <section id="footer">
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-12">
+                      <div class="footer text-center">
+                          <div class="clearfix aniview animated slideInDown" data-av-animation="slideInDown" data-wow-delay="0.1s" style="opacity: 1;">
+                              <ul class="social-network social-circle">
+                                  <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                                  <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                  <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                  <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                                  <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                              </ul>
+                          </div>
+                          <p>© 2013 Your Website Name. All Rights Reserved | Design by <a href="http://www.templateonweb.com">TemplateOnWeb</a></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+            -->
+    <div id="toTop" class="btn btn-info" style="display: block; background:none; color:#999; border-color:#999;"><span class="fa fa-chevron-up"></span></div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('body').append('<div id="toTop" class="btn btn-info"><span class="glyphicon glyphicon-chevron-up"></span> Back to Top</div>');
+        $(window).scroll(function () {
+                if ($(this).scrollTop() != 0) {
+            $('#toTop').fadeIn();
+                } else {
+            $('#toTop').fadeOut();
+                }
+            });
+        $('#toTop').click(function () {
+            $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+            });
+        });
+
+    </script>
+
+
+    <script src="~/Content/Visiter/js/classie.js"></script>
+    <script src="~/Content/Visiter/js/cbpAnimatedHeader.js"></script>
+
+</body>
+
+</html>

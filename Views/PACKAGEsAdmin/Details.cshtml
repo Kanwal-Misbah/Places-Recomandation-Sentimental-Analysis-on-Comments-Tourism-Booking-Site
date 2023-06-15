@@ -1,0 +1,200 @@
+﻿@model Fin.Models.PACKAGE
+
+@{
+    ViewBag.Title = "Details";
+}
+@{
+
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+<h2>Details</h2>
+
+<div>
+    <h4>PACKAGE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Business_User.Bus_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Business_User.Bus_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.Cat_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Cat_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destination.Des_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination.Des_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Package_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Package_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Package_duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Package_duration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.No_of_Members)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.No_of_Members)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Package_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Package_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Package_Image)
+        </dt>
+
+        <dd>
+            <img style="width:50% ; height: 50%" src="@Url.Content(Model.Package_Image)" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Package_Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Package_Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Internet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Internet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Room_Service)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Room_Service)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Parking_Space)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Parking_Space)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Meal_Service)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Meal_Service)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Package_Style)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Package_Style)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Travel_Guider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Travel_Guider)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Transport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Start_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Start_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.End_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.End_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departure_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departure_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sentimental_score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sentimental_score)
+        </dd>
+        <dt>
+           All Comments 
+        </dt>
+
+        <dd>
+            @string.Join(",",Model.COMMENTs.Select(x=>x.ComentDescription).ToList())
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+    <a href="@Url.Action("Edit","PackagesAdmin", new { id = Model.Package_id })"> <i style="color:green" class="bx bx-edit"></i></a>
+    <a href="@Url.Action("Back to List","PackagesAdmin", new { id = Model.Package_id })"> <i style="color:blue" class="bx bx-arrow-back"></i></a>
+
+  
+</p>

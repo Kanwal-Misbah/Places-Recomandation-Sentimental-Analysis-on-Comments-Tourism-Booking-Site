@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Fin.Models.Category>
+
+@using Fin.Models
+@{
+    Layout = "~/Views/Shared/_LayoutVisiter.cshtml";
+}
+@{
+    ViewBag.Title = "DisplayCategories";
+}
+<br />
+
+<header>
+    <style>
+        .categories-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .category-item {
+            width: 33.33%; /* Set to 33.33% for three cards in a line */
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+
+        .category-item-inner {
+            /* Add styling as needed */
+        }
+
+            .category-item-inner img {
+                width: 100%;
+                height: auto;
+            }
+
+        .category-item:first-child .category-item-inner img {
+            margin-left: 10px; /* Adjust the value as needed */
+        }
+
+        .category-item:last-child .category-item-inner img {
+            margin-right: 10px; /* Adjust the value as needed */
+        }
+
+        /* Rest of your CSS styles */
+
+
+    </style>
+</header>
+<section id="list">
+    <div class="container">
+        <h1 style="text-align-last:center ; font-size: 30px;"> Categories</h1>
+        <br />
+        <div class="row">
+            <section>
+                <div class="categories-container">
+
+                    @foreach (var cat in Model)
+                    {
+                        <div class="category-item">
+                            <div class="category-item-inner">
+                                <div class="grid">
+                                    <figure class="effect-ming">
+                                        <!--  <a asp-controller="Home" asp-action="DisplayDestinations" asp-route-id="@cat.Category_ID">-->
+                                        <img style="width:100%; height:250px;"  src="@Url.Content(cat.Cat_Image)" alt="img08" />
+                                        <figcaption>
+                                            <h2><span>@cat.Cat_Name</span></h2>
+                                            <p style="height:40px;">@cat.Cat_description</p>
+                                            <a href="@Url.Action("DisplayDestinations","Home",new { id = cat.Category_ID})">Destinations</a>
+                                        </figcaption>
+
+                                    </figure>
+                                </div>
+                                <div class="category-item-inner-1">
+                                    <div class="col-sm-8">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <!-- <h5 style="align-content:center"><a href="detail.html">View Destinations</a></h5>
+                                        <button style="align-content:center"> Destinations</button>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </section>
+</section>
+
+
+
+
+
+

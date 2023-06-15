@@ -1,0 +1,435 @@
+﻿@model Fin.Models.PACKAGE
+@using Fin.Models
+
+@{
+    Layout = "~/Views/Shared/_LayoutVisiter.cshtml";
+    Fin.Models.User loginUser = null;
+    if (Session["LoginUser"] != null)
+    {
+        loginUser = (Fin.Models.User)Session["LoginUser"];
+    }
+
+    var suggestionList = new List<PACKAGE>();
+    suggestionList = (List<PACKAGE>)TempData["Suggestions"];
+}
+
+
+@{
+    ViewBag.Title = "PackageDetails";
+}
+@Html.Raw(TempData["Message"])
+<h2>PackageDetails</h2>
+
+<div>
+    <h4>PACKAGE</h4>
+    <hr />
+</div>
+<section id="list">
+    <div class="container">
+        <div class="row">
+
+            <div class="detail clearfix">
+                <div class="col-sm-8 space_all">
+                    <div class="detail_left clearfix">
+                        <img style="width:100%; height:100%;" src="@Url.Content(Model.Package_Image)" />
+                    </div>
+                </div>
+                <div class="col-sm-4 space_all">
+                    <div class="detail_right clearfix">
+                        <div class="detail_right_inner clearfix">
+
+
+                            <h4>@Model.Package_description</h4>
+
+                            
+                        </div>
+                        <div class="detail_right_inner_1 clearfix">
+
+                            <h3>@Model.Package_title</h3>
+
+
+
+                        </div>
+                        <div class="detail_right_inner_2 clearfix">
+                            <div class="col-sm-6">
+                                <div class="detail_right_inner_2_left text-center">
+                                    <h3>@Model.Package_Price</h3>
+                                    <p><br> Per head</p>
+                                </div>
+
+                            </div>
+                            <div class="detail_right_inner_2_left text-center">
+                                <h3><strike><h5 style="font-size:20px">@Model.Discount</h5></strike></h3>
+                                <p><br> Discount</p>
+                            </div>
+
+                        </div>
+                        <div class="detail_right_inner_3 clearfix">
+
+
+                            <div class="detail_right_inner_3_left text-center " style="margin-left:40px;">
+                                <p><b>Package Duration: </b>@Model.Package_duration</p>
+                                <p><b>Max Available seats: </b> @Model.No_of_Members</p>
+                                <p><b>Departure: </b> @Model.Departure_Address</p>
+                                <h6><i class="fa fa-check"></i><b>Package start Date:</b> @Model.Start_date</h6>
+                                <h6><i class="fa fa-check"></i><b>Package End Date: </b> @Model.End_date</h6>
+                            </div>
+
+                        </div>
+
+                        <div class="detail_right_inner_4 clearfix">
+
+                            <h5 class="heading_2"><a href="@Url.Action("AddToWishList","Home",new { id = Model.Package_id})"><i class="fa fa-plus"></i>ADD TO CART</a></h5>
+
+                            <h5 class="heading_1"><a href="@Url.Action("Booking", "Home", new { id = Model.Package_id })"><i class="fa fa-check"></i>BOOKING OPEN</a></h5>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="detail_1 clearfix">
+                <div class="col-sm-8 space_left">
+                    <div class="detail_1_left clearfix">
+
+
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#home"><i class="fa fa-info"></i> About</a></li>
+
+                            <li><a data-toggle="tab" href="#menu1"><i class="fa fa-rupee"></i> Activiies </a></li>
+                            <li><a data-toggle="tab" href="#menu2"><i class="fa fa-edit"></i> Places</a></li>
+
+
+                            <li><a data-toggle="tab" href="#menu5"><i class="fa fa-smile-o"></i> Comments</a></li>
+                            <li><a data-toggle="tab" href="#menu6"><i class="fa fa-smile-o"></i> Recommandations for you</a></li>
+                        </ul>
+
+                        <div class="tab-content clearfix">
+                            <div id="home" class="tab-pane fade in active clearfix">
+                                <div class="click clearfix">
+                                    <div class="col-sm-12 tab_main">
+                                        <div class="home_tab_inner clearfix">
+                                            <p> @Model.Package_description</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 tab_main">
+                                        <div class="panel-group" id="accordion">
+                                            <div class="home_tab_inner clearfix">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class=""> Package Style<i class="fa fa-caret-down pull-right"></i></a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapse1" class="panel-collapse collapse in" style="height: auto;">
+                                                        <div class="panel-body"><p>@Model.Package_Style</p></div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 tab_main">
+                                        <div class="panel-group" id="accordion">
+                                            <div class="home_tab_inner clearfix">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="">Residence Accommodation <i class="fa fa-caret-down pull-right"></i></a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapse2" class="panel-collapse collapse in" style="height: auto;">
+                                                        <div class="panel-body"><p> @Model.Room_Service</p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 tab_main">
+                                        <div class="panel-group" id="accordion">
+                                            <div class="home_tab_inner clearfix">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="">Departure<i class="fa fa-caret-down pull-right"></i></a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapse2" class="panel-collapse collapse in" style="height: auto;">
+                                                        <div class="panel-body"><p> @Model.Departure_Address</p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 tab_main">
+                                        <div class="panel-group" id="accordion">
+                                            <div class="home_tab_inner clearfix">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="">Meal Accommodation <i class="fa fa-caret-down pull-right"></i></a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapse2" class="panel-collapse collapse in" style="height: auto;">
+                                                        <div class="panel-body"><p> @Model.Meal_Service</p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 tab_main">
+                                        <div class="panel-group" id="accordion">
+                                            <div class="home_tab_inner clearfix">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="">Internet <i class="fa fa-caret-down pull-right"></i></a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapse3" class="panel-collapse collapse in" style="height: auto;">
+                                                        <div class="panel-body"><p>@Model.Internet</p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 tab_main">
+                                        <div class="panel-group" id="accordion">
+                                            <div class="home_tab_inner clearfix">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse4" class="">Tour Guide<i class="fa fa-caret-down pull-right"></i></a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapse4" class="panel-collapse collapse in" style="height: auto;">
+                                                        <div class="panel-body"><p>@Model.Travel_Guider</p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 tab_main">
+                                        <div class="panel-group" id="accordion">
+                                            <div class="home_tab_inner clearfix">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse5" class="">Parking Space <i class="fa fa-caret-down pull-right"></i></a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapse5" class="panel-collapse collapse in" style="height: auto;">
+                                                        <div class="panel-body"><p>@Model.Parking_Space</p></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                            <div id="menu2" class="tab-pane fade clearfix">
+                                <div class="click tab_main clearfix">
+                                    <div class="menu1_inner_tab clearfix">
+                                        <p>During this tour, you will have the opportunity to engage in a variety of exciting activities. Get ready to embark on thrilling adventures and create lasting memories as you experience the following:</p>
+                                    </div>
+                                    @foreach (var item in Model.Places)
+                                    {
+                                        <div class="menu1_inner_tab_1 clearfix">
+                                            <div class="col-sm-4">
+
+                                                <a href="#"><img src="@Url.Content(item.Place_Image) " width="100%" height="150px"></a>
+
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="menu1_inner_tab_1_middle clearfix">
+                                                    <h4>@item.Place_Name</h4>
+
+
+                                                    <h6><i class="fa fa-check"></i> @item.Place_Description </h6>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+
+
+                            <div id="menu1" class="tab-pane fade clearfix">
+                                <div class="click clearfix">
+                                    <div class="col-sm-12 tab_main">
+                                        <div class="home_tab_inner clearfix">
+                                            <p> Tour package includes visits to some additional captivating places. Prepare to be enthralled by the following destinations:</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 tab_main">
+                                        @foreach (var item in Model.Activities)
+                                        {
+                                            <div class="menu1_inner_tab_1 clearfix">
+                                                <div class="col-sm-4">
+
+                                                    <a href="#"><img src="@Url.Content(item.Act_Image) " width="100%" height="150px"></a>
+
+                                                </div>
+                                                <div class="col-sm-5">
+                                                    <div class="menu1_inner_tab_1_middle clearfix">
+                                                        <h4>@item.Act_Name</h4>
+
+                                                        <h6><i class="fa fa-check"></i> @item.Act_Type </h6>
+                                                        <p>@item.Act_description</p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        }
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div id="menu5" class="tab-pane fade clearfix">
+                                <div class="click tab_main clearfix">
+                                    <div class="menu1_inner_tab clearfix">
+                                        <div class="menu1_inner_tab_inner clearfix">
+                                            <p>Here are some comments from people who have experienced this tour package</p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="menu1_inner_tab_1 clearfix">
+                                        <div class="col-sm-4">
+
+                                            <a href="#"><img src="~/Content/Visiter/img/no user.jpg" width="35%" height="50px"></a>
+
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <form action="/Home/SaveComment" method="post">
+                                                <div class="menu1_inner_tab_1_middle clearfix">
+                                                    @if (loginUser != null)
+                                                    {
+                                                        <h3>@loginUser.User_Name</h3>
+                                                    }
+                                                    else
+                                                    {
+                                                        <h3>User Name</h3>
+                                                    }
+                                                    <p>
+                                                        @DateTime.Now.ToString("dddd, dd MMMM yyyy")
+                                                    </p>
+                                                    <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br><br>
+                                                    <input type="hidden" value="@Model.Package_id" name="pkgId" /><br><br>
+                                                    <a href="href=" @Url.Action("PackageDetails", "Home", new { id = Model.Package_id }) "> <button style="margin-right:90px;">Submit</button> </a>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                        <div class="col-sm-3">
+
+                                        </div>
+
+                                    </div>
+
+                                    @foreach (var item in Model.COMMENTs)
+                                    {
+                                       
+                                        <div class="menu1_inner_tab_1 clearfix">
+                                            <div class="col-sm-4">
+
+                                                <a href="#"><img src="~/Content/Visiter/img/no user.jpg" width="35%" height="50px"></a>
+
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="menu1_inner_tab_1_middle clearfix">
+                                                    
+                                                    <h4>@item.User.User_Name</h4>
+                                                    
+                                                    <p>@item.ComentedOn</p>
+                                                    <p>@item.ComentDescription</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="menu1_inner_tab_1_right text-center clearfix">
+                                                    
+                                                    <h3>@item.Rating</h3>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                            <div id="menu6" class="tab-pane fade clearfix">
+                                <div class="click tab_main clearfix">
+                                    <div class="menu1_inner_tab clearfix">
+                                       <p>Recommandation</p>
+                                    </div>
+                                    @foreach (var item in suggestionList)
+                                    {
+                                        <div class="menu1_inner_tab_1 clearfix">
+                                            <div class="col-sm-4">
+
+                                                <a href="#"><img src="@Url.Content(item.Package_Image)" width="100%" height="200px"></a>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="menu1_inner_tab_1_middle clearfix">
+                                                    <h4>@item.Package_title</h4>
+                                                    <p><b>Package Price: </b>@item.Package_Price</p>
+                                                    <p><b>Max Available seats: </b> @item.No_of_Members</p>
+                                                    <p><b>Room: </b>@item.Room_Service</p>
+                                                    <p><b>Meal Service: </b> @item.Meal_Service</p>
+                                                    <p><b>Transport: </b>@item.Transport</p>
+                                                    <p><b>Departure: </b>@item.Departure_Address</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-4 space_right">
+                    <div class="detail_1_right clearfix">
+                        <div class="detail_1_right_inner clearfix">
+                            <p>
+                                <i class="fa fa-quote-left"></i>  Discover the world's hidden treasures and embark on an unforgettable journey with us.
+                            </p>
+                            
+                        </div>
+                        <div class="detail_1_right_inner_1 clearfix">
+                            <h3><i class="fa fa-phone"></i> Require Help?</h3>
+                            <p>For any Question Please Contact us at</p>
+                            <h2>0309-6735987</h2>
+                        </div>
+                        <div class="detail_1_right_inner_2 clearfix">
+                            <h3><i class="fa fa-map-marker"></i> Want to Know more about Us</h3>
+                            <div class="detail_1_right_inner_2_inner clearfix">
+                                <div class="col-sm-5">
+                                    <div class="detail_1_right_inner_2_inner_left">
+                                        <a href="#"><img src="@Model.Business_User." width="100%"></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="detail_1_right_inner_2_inner_right">
+                                        <h5><a href="#">@Model.Business_User.Bank_Name</a></h5>
+                                        <p><span>@Model.Business_User.Bus_Address</span></p>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

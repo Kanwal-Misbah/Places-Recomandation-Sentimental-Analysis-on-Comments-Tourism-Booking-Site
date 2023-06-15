@@ -1,0 +1,64 @@
+﻿@model Fin.Models.Destination
+
+@{
+    ViewBag.Title = "Details";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutBusinessUser.cshtml";
+
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Destination</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Des_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Des_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Des_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Des_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Des_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Des_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Des_Image)
+        </dt>
+
+        <dd>
+
+            <img style="width:50% ; height: 50%" src=" @Url.Content(Model.Des_Image)" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category_FID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category_FID)
+
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Destination_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

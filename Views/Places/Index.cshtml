@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Fin.Models.Place>
+
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutBusinessUser.cshtml";
+
+}
+
+<h2>Index</h2>
+
+<p>
+
+    <a href="@Url.Action("Create","Places")"><button style="margin-left: 50px; margin-top:50px" class="btn btn-sm btn-outline-primary">Add New Place</button></a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PACKAGE.Package_title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Place_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Place_Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Place_Image)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PACKAGE.Package_title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Place_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Place_Description)
+            </td>
+            <td>
+      
+                <img style="width:50% ; height: 50%" src="@Url.Content(item.Place_Image)" />
+            </td>
+            <td>
+
+                <a href="@Url.Action("Edit","Places", new { id = item.Place_id })"> <i style="color:green" class="bx bx-edit"></i></a>
+                <a href="@Url.Action("Details","Places", new { id = item.Place_id })"> <i style="color:blue" class="bx bx-detail"></i></a>
+                <a href="@Url.Action("Delete","Places", new { id = item.Place_id })"> <i style="color:red" class="bx bx-trash"></i></a>
+
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Fin.Models.Destination>
+
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutBusinessUser.cshtml";
+
+}
+
+<h2>Index</h2>
+
+<p>
+    
+    <a href="@Url.Action("Create","Destinations")"><button style="margin-left: 50px; margin-top:50px" class="btn btn-sm btn-outline-primary">Add New Destination</button></a>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Des_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Des_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Des_description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Des_Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Des_Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Des_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Des_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Des_description)
+            </td>
+            <td>
+               
+                <img style="width:50% ; height: 50%" src=" @Url.Content(item.Des_Image)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Des_Name)
+            </td>
+            <td>
+            
+
+                <a href="@Url.Action("Edit","Destinations", new { id = item.Destination_Id })"> <i style="color:green" class="bx bx-edit"></i></a>
+                <a href="@Url.Action("Details","Destinations", new { id = item.Destination_Id })"> <i style="color:blue" class="bx bx-detail"></i></a>
+                <a href="@Url.Action("Delete","Destinations", new { id = item.Destination_Id })"> <i style="color:red" class="bx bx-trash"></i></a>
+
+            </td>
+        </tr>
+    }
+
+</table>

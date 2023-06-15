@@ -1,0 +1,165 @@
+﻿@model IEnumerable<Fin.Models.Booking>
+@using Fin.Models
+@{
+    ViewBag.Title = "TourBooked";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutVisiter.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<button class="btn btn-danger" style="margin-left:550px;">Your Tour is Booked Sucessfuly, Thanks for your Trust</button>
+<u><h2 style="margin-left:578px; margin-top:30px;">Your Booking Details</h2></u>
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .booking-table-container {
+            max-width: 1300px; /* Increased size */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;  
+            border: 1px solid #ccc; /* Added border */
+           
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #55a753; /* Green color */
+        }
+        /* Additional styles for a creative table */
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Alternate row color */
+        }
+
+        tr:hover {
+            background-color: #f9f9f9; /* Hover effect */
+        }
+
+        td {
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        // JavaScript code for design enhancements
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add hover effect to table rows
+            var tableRows = document.querySelectorAll('table tbody tr');
+            for (var i = 0; i < tableRows.length; i++) {
+                tableRows[i].addEventListener('mouseover', function () {
+                    this.style.backgroundColor = '#f9f9f9';
+                });
+                tableRows[i].addEventListener('mouseout', function () {
+                    this.style.backgroundColor = 'transparent';
+                });
+            }
+        });
+        function PrintFunction(element) {
+            var item = element.parentNode.parentNode;
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><head><title>Print Report</title>');
+            printWindow.document.write('<style>');
+            printWindow.document.write('table { width: 100%; border-collapse: collapse; }');
+            printWindow.document.write('th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }');
+            printWindow.document.write('h1 { text-align: center; color: green; }'); // Centered main heading with green color
+            printWindow.document.write('h2 { text-align: center; color: green; }'); // Centered message with green color
+            printWindow.document.write('</style>');
+            printWindow.document.write('</head><body>');
+            printWindow.document.write('<h1>Booking Details</h1>');
+            printWindow.document.write('<table>');
+            printWindow.document.write('<tr><th>User Name</th><td>' + item.cells[0].innerText + '</td></tr>');
+            printWindow.document.write('<tr><th>Email</th><td>' + item.cells[1].innerText + '</td></tr>');
+            printWindow.document.write('<tr><th>Package Name</th><td>' + item.cells[2].innerText + '</td></tr>');
+            printWindow.document.write('<tr><th>Departure Address</th><td>' + item.cells[3].innerText + '</td></tr>');
+            printWindow.document.write('<tr><th>No. of Members</th><td>' + item.cells[4].innerText + '</td></tr>');
+            printWindow.document.write('<tr><th>Total Payment</th><td>' + item.cells[5].innerText + '</td></tr>');
+            printWindow.document.write('<tr><th>Payment Status</th><td>' + item.cells[6].innerText + '</td></tr>');
+            printWindow.document.write('<tr><th>Booking Date</th><td>' + item.cells[7].innerText + '</td></tr>');
+            printWindow.document.write('</table>');
+            printWindow.document.write('<h2>Thanks For Booking From Lead To Travel</h2>'); // Added the message at the end
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            setTimeout(function () {
+                printWindow.print();
+            }, 500);
+            return false;
+        }
+    </script>
+</head>
+<body>
+   
+    <div class="booking-table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>Package Name</th>
+                    <th>Departure</th>
+                    <th>Total Members</th>
+                    <th>Total Payment</th>
+                    <th>Payment Status</th>
+                    <th>Booking Date</th>
+                    <th>Invoice</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    if (Session["LoginUser"] != null)
+                    {
+                        User p = (User)Session["LoginUser"];
+                        if (p.User_Id == item.User_FID)
+                        {
+                            <tr>
+
+
+                                <td>@item.User.User_Name</td>
+                                <td>@item.User.Email</td>
+                                <td>@item.PACKAGE.Package_title</td>
+                                <td>@item.PACKAGE.Departure_Address</td>
+                                <td>@item.No_of_Members</td>
+                                <td>@item.Total_Payment</td>
+                                <td>@item.Payment_status</td>
+                                <td>@item.Booking_date</td>
+                                <td>
+                                    <input type="button" onclick="PrintFunction(this);" value="Print" />
+                                </td>
+
+
+                            </tr>
+                        }
+                    }
+                }
+
+                <!-- Add more rows for additional bookings -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

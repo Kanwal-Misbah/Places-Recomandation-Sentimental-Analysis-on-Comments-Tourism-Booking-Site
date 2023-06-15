@@ -1,0 +1,190 @@
+﻿@model Fin.Models.User
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@{
+    Layout = "~/Views/Shared/_LayoutVisiter.cshtml";
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Creative Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .registration-header {
+            text-align: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        .registration-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+            .registration-container h2 {
+                text-align: center;
+            }
+
+        .registration-form-group {
+            margin-bottom: 20px;
+        }
+
+            .registration-form-group label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .registration-form-group input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .registration-form-group .error-message {
+                color: red;
+                margin-top: 5px;
+            }
+
+            .registration-form-group button {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                background-color: #4CAF50;
+                color: white;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+                .registration-form-group button:hover {
+                    background-color: #45a049;
+                }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <!-- Your existing navbar code goes here -->
+        <!-- ... -->
+    </div>
+    <br />
+    <br />
+    <div class="registration-container">
+        <div>
+
+            <img style="width: 30%; height: 30%; margin-left: 110px; border-radius: 50%;"
+                 src="~/Content/Visiter/img/user.png" />
+        </div>
+        <br />
+        <div class="registration-form-container">
+            <h2>Register</h2>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <form id="registerForm">
+                    <div class="registration-form-group">
+                        <label for="username">Username:</label>
+                        <div>
+                            @Html.EditorFor(model => model.User_Name, new { htmlAttributes = new { @class = "form-control", id = "username" ,oninput = "validateUsername()",} })
+                            @Html.ValidationMessageFor(model => model.User_Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="registration-form-group">
+                        <label for="email">Email:</label>
+                        <div>
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", id = "email" , pattern = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}", oninput = "validateEmail()" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="registration-form-group">
+                        <label for="password">Password:</label>
+                        <div>
+                            @*@Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", id = "password", oninput = "validatePassword()" } })*@
+                            <input type="password" required class="form-control" name="Password" title="Password must be at least 8 characters long, contain a number, a special character, and both lowercase and uppercase alphabets." pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"/>
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            <span id="passwordError" class="error-message"></span>
+                        </div>
+                    </div>
+                    <div class="registration-form-group">
+                        <button type="submit">Register</button>
+                    </div>
+                </form>
+            }
+        </div>
+    </div>
+
+    <script>
+
+
+        function validatePassword() {
+            var passwordInput = document.getElementById("password");
+            var password = passwordInput.value;
+
+            var pattern = "^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[$!%#?&])[A-Za-z\d$!%#?&]{8,}$";
+            var isValid = pattern.test(password);
+
+            if (!isValid) {
+                passwordInput.setCustomValidity("Password contain a number, a special character, and both lowercase and uppercase alphabets.");
+
+            } else {
+                passwordInput.setCustomValidity("");
+            }
+        }
+
+        function validateEmail() {
+            var emailInput = document.getElementById("email");
+            var email = emailInput.value;
+
+            var pattern = /[a-zA-Z0-9._%+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
+            var isValid = pattern.test(email);
+
+            if (!isValid) {
+                emailInput.setCustomValidity("Please enter a valid email address.");
+            } else {
+                emailInput.setCustomValidity("");
+            }
+        }
+
+        function validateUsername() {
+            var usernameInput = document.getElementById("username");
+            var username = usernameInput.value;
+
+            if (username.length <= 5) {
+                usernameInput.setCustomValidity("Username must be longer than 5 characters.");
+            } else {
+                usernameInput.setCustomValidity("");
+            }
+        }
+
+    </script>
+
+
+
+
+
+    <!-- HTML code for the rest of the page -->
+</body>
+</html>

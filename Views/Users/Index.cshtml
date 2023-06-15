@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Fin.Models.User>
+@using Fin.Models
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@{
+    // Layout = "~/Views/Shared/_LayoutBusinessUser.cshtml";
+    //Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutVisiter.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        
+        <th>
+           Address
+        </th>
+        <th>
+           Gender
+        </th>
+        
+        <th>
+           Phone Number
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Password
+        </th>
+        <th>
+           Image
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (Session["LoginUser"] != null)
+        {
+            User p = (User)Session["LoginUser"];
+            if (p.User_Id == item.User_Id)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User_Name)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User_Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User_Gender)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User_Phone_Number)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Password)
+                    </td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.User_Image))
+                        {
+                            <img style="width:50% ; height: 50%" src="@Url.Content(item.User_Image)" />
+                        }
+                        else
+                        {
+                            <span>No image available</span>
+                        }
+                       
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.User_Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.User_Id })
+
+                    </td>
+                </tr>
+            }
+        }
+    }
+
+</table>

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Fin.Models.Business_User>
+
+@{
+    ViewBag.Title = "Index";
+}
+@{
+
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Bus_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bus_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bank_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bank_Account_number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bus_Reg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bus_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bus_Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bus_logo)
+        </th>
+        
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bus_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bus_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bank_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bank_Account_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bus_Reg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bus_Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bus_Password)
+            </td>
+            <td>
+                @if (!string.IsNullOrEmpty(item.Bus_logo))
+                {
+                    <img style="width:50% ; height: 50%" src="@Url.Content(item.Bus_logo)" />
+                }
+                else
+                {
+                    <span> No image available </span>
+
+                }
+            </td>
+            
+            <td>
+              
+                @Html.ActionLink("Delete", "Delete", new { id = item.Bus_User_Id })
+            </td>
+        </tr>
+    }
+
+</table>

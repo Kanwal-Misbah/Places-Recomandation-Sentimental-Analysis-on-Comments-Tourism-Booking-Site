@@ -1,0 +1,143 @@
+﻿
+@model Fin.Models.PackCom
+
+@{
+
+    ViewBag.Title = "DisplayPackages";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutVisiter.cshtml";
+}
+
+
+<head>
+    <title>Heart Icon</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
+    <style>
+        .heart-icon {
+            color: green;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+            .heart-icon.filled {
+                fill: green;
+            }
+    </style>
+</head>
+<section id="list">
+    <div class="container">
+        <div class="row">
+
+            <div class="list_1 clearfix">
+                <div class="col-sm-3 space_all">
+                    <div class="list_1_left clearfix">
+                        <div class="list_1_left_inner text-center clearfix">
+                            <p><span>Filter By</span> </p>
+
+                        </div>
+
+
+                        <div class="list_1_left_inner_2 clearfix">
+                            <div class="tab_inner clearfix">
+
+
+                            </div>
+
+                            <div class="list_1_left_inner_2_inner_1 clearfix">
+                                <a href="#"><h5>Tour Provider</h5></a>
+                                <div class="list_1_left_inner_2_inner_1 clearfix">
+                                    @foreach (var c in Model.Buser)
+                                    {
+                                        <a href="@Url.Action("DisplayPackages","Home",new { id = c.Bus_User_Id,type="business"})">@c.Bus_Name</a><br />
+                                    }
+
+                                </div>
+
+
+                            </div>
+                            <div class="list_1_left_inner_2_inner_1 clearfix">
+                                <a href="#"><h5>Categories</h5></a>
+                                <div class="list_1_left_inner_2_inner_1 clearfix">
+                                    @foreach (var c in Model.cat)
+                                    {
+                                        <a href="@Url.Action("DisplayPackages","Home",new { id = c.Category_ID,type="category"})">@c.Cat_Name</a><br />
+                                    }
+
+                                </div>
+
+
+                            </div>
+                            <div class="list_1_left_inner_2_inner_1 clearfix">
+                                <a href="#"><h5>Destinations</h5></a>
+                                <div class="list_1_left_inner_2_inner_1 clearfix">
+                                    @foreach (var c in Model.des)
+                                    {
+                                        <a href="@Url.Action("DisplayPackages","Home",new { id = c.Destination_Id,type="destination"})">@c.Des_Name</a><br />
+                                    }
+
+                                </div>
+
+
+                            </div>
+                           
+
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="col-sm-9">
+                    
+                       
+                        <div class="list_1_right_2 clearfix">
+                            @foreach (var p in Model.pack)
+                            {
+                                <div class="menu1_inner_tab_1 clearfix">
+
+                                    <div class="col-sm-4">
+                                        <div >
+                                            <a href="@Url.Action("PackageDetails","Home",new { id = p.Package_id})"><img src="@Url.Content(p.Package_Image)" width="100%" height="270px"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="menu1_inner_tab_1_middle clearfix">
+                                            <h4>@p.Package_title</h4>
+                                            <p><b>Tour Provider: </b> @p.Business_User.Bus_Name</p>
+                                            <p><b>Category: </b> @p.Category.Cat_Name</p>
+                                            <p><b>Max Available seats: </b> @p.No_of_Members</p>
+                                            <p><b>Room: </b>@p.Room_Service</p>
+                                            <p><b>Meal Service: </b> @p.Meal_Service</p>
+                                            <p><b>Transport: </b>@p.Transport</p>
+                                            <p><b>Departure: </b>@p.Departure_Address</p>
+
+                                            
+                                            <h6><i class="fa fa-check"></i> @p.Start_date</h6>
+                                            <h6><i class="fa fa-check"></i> @p.End_date</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="menu1_inner_tab_1_right text-center clearfix">
+                                            <h3><b>@p.Package_Price</b></h3>
+                                            <h6>per Member</h6>
+                                            <strike><h5 style="font-size:30px">@p.Discount</h5></strike>
+                                            <h4><a href="@Url.Action("PackageDetails","Home",new { id = p.Package_id})">View Details</a></h4>
+                                            <br />
+                                            <h4><a href="@Url.Action("AddToWishList","Home",new { id = p.Package_id})">Add to WishList</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                           
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+

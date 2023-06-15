@@ -1,0 +1,122 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutVisiter.cshtml";
+}
+@Html.Raw(TempData["loginMessage"]);
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-header {
+            text-align: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        .login-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+            .login-container h2 {
+                text-align: center;
+            }
+
+        .login-form-group {
+            margin-bottom: 20px;
+        }
+
+            .login-form-group label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .login-form-group input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .login-form-group .error-message {
+                color: red;
+                margin-top: 5px;
+            }
+
+            .login-form-group button {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                background-color: #4CAF50;
+                color: white;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+                .login-form-group button:hover {
+                    background-color: #45a049;
+                }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <!-- Your existing navbar code goes here -->
+        <!-- ... -->
+    </div>
+   
+
+            
+<div class="login-container">
+    <div>
+        <img  style="width: 30%; height: 30%; margin-left: 110px; border-radius: 50%;"
+             src="~/Content/Visiter/img/user.png"/>
+    </div>
+    <br />
+    <div class="login-form-container">
+        <h2>Login Visiter</h2>
+        @using (Html.BeginForm("LoginUser", "Home", FormMethod.Post))
+        {
+    <form id="loginForm">
+        <div class="login-form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="login-form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <span id="passwordError" class="error-message"></span>
+        </div>
+        <p style="color:red;font-size:large"> @ViewBag.Message  </p>
+        <div class="login-form-group">
+            <button class="btn btn-primary d-grid w-100" type="submit" value="LoginUser">Login</button>
+        </div>
+
+       
+
+    </form>
+        }
+            <div class="register-link-container">
+
+                <p>Don't have an account? <a href="@Url.Action("Create","Users")">Register</a></p>
+            </div>
+        </div>
+</div>
+</html>

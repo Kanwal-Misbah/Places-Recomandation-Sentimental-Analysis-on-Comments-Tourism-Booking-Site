@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Fin.Models.Booking>
+
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+
+<u><h2 style="margin-left:400px; margin-top:50px;">Total Booking Details</h2></u>
+
+<br />
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PACKAGE.Package_title)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.User.User_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PACKAGE.No_of_Members)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Booking_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total_Payment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Payment_status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PACKAGE.Package_title)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.User.User_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PACKAGE.No_of_Members)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Booking_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total_Payment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payment_status)
+            </td>
+            <td>
+               
+      
+            </td>
+        </tr>
+    }
+
+</table>
